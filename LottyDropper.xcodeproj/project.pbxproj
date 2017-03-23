@@ -48,6 +48,7 @@
 		C00416DF1E84312C00E92308 /* LottyDropperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LottyDropperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C00416E31E84312C00E92308 /* LottyDropperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LottyDropperTests.m; sourceTree = "<group>"; };
 		C00416E51E84312C00E92308 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C00416F11E84368B00E92308 /* DropboxLoginable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DropboxLoginable.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +114,7 @@
 		C00416C81E84312C00E92308 /* LottyDropper */ = {
 			isa = PBXGroup;
 			children = (
+				C00416F11E84368B00E92308 /* DropboxLoginable.h */,
 				C00416CC1E84312C00E92308 /* AppDelegate.h */,
 				C00416CD1E84312C00E92308 /* AppDelegate.m */,
 				C00416CF1E84312C00E92308 /* ViewController.h */,
@@ -555,6 +557,7 @@
 				C00416EA1E84312C00E92308 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C00416EB1E84312C00E92308 /* Build configuration list for PBXNativeTarget "LottyDropperTests" */ = {
 			isa = XCConfigurationList;
@@ -563,6 +566,7 @@
 				C00416ED1E84312C00E92308 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
