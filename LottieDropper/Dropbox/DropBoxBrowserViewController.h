@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class DropboxBrowserViewModel;
+
 @interface DropBoxBrowserViewController : UIViewController
+
+@property (nonatomic, strong) DropboxBrowserViewModel * browserViewModel;
 
 @end
