@@ -23,7 +23,7 @@
 		if (accessToken != nil) {
 			_client = [[DBUserClient alloc] initWithAccessToken: accessToken];
 		} else {
-			NSLog(@" No Drobox user client");
+			NSLog(@" No Dropbox user client");
 		}
 	}
 	return _client;
@@ -41,8 +41,8 @@
 
 - (void)initializeDropboxClient: (void (^)(void)) done  {
 
-	if (self.client != nil) {
-		NSLog(@" No Drobox user client");
+	if (self.client == nil) {
+		NSLog(@" No Dropbox user client");
 		return;
 	}
 	[[self.client.filesRoutes listFolder:@""]
