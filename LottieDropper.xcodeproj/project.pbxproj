@@ -11,12 +11,13 @@
 		9CD6F9095CD9DE104585E66F /* Pods_LottieDropper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D75ECD58F61901F591C49DC /* Pods_LottieDropper.framework */; };
 		C00416CB1E84312C00E92308 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C00416CA1E84312C00E92308 /* main.m */; };
 		C00416CE1E84312C00E92308 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C00416CD1E84312C00E92308 /* AppDelegate.m */; };
-		C00416D11E84312C00E92308 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C00416D01E84312C00E92308 /* ViewController.m */; };
+		C00416D11E84312C00E92308 /* DropboxAccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C00416D01E84312C00E92308 /* DropboxAccessViewController.m */; };
 		C00416D41E84312C00E92308 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C00416D21E84312C00E92308 /* Main.storyboard */; };
 		C00416D61E84312C00E92308 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C00416D51E84312C00E92308 /* Assets.xcassets */; };
 		C00416D91E84312C00E92308 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C00416D71E84312C00E92308 /* LaunchScreen.storyboard */; };
 		C00416E41E84312C00E92308 /* LottyDropperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C00416E31E84312C00E92308 /* LottyDropperTests.m */; };
 		C0F3EF951E88FC1D004B007F /* LottieDropperKeychainBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F3EF941E88FC1D004B007F /* LottieDropperKeychainBridge.swift */; };
+		C0F3EFA41E89088D004B007F /* LottieFlowControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F3EFA31E89088D004B007F /* LottieFlowControllerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +39,8 @@
 		C00416CA1E84312C00E92308 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C00416CC1E84312C00E92308 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C00416CD1E84312C00E92308 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C00416CF1E84312C00E92308 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		C00416D01E84312C00E92308 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		C00416CF1E84312C00E92308 /* DropboxAccessViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DropboxAccessViewController.h; sourceTree = "<group>"; };
+		C00416D01E84312C00E92308 /* DropboxAccessViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DropboxAccessViewController.m; sourceTree = "<group>"; };
 		C00416D31E84312C00E92308 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C00416D51E84312C00E92308 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C00416D81E84312C00E92308 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +52,8 @@
 		C0A63869B56FE88FD2377C2C /* Pods-LottieDropperTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LottieDropperTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LottieDropperTests/Pods-LottieDropperTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C0F3EF931E88FC1D004B007F /* LottieDropper-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LottieDropper-Bridging-Header.h"; sourceTree = "<group>"; };
 		C0F3EF941E88FC1D004B007F /* LottieDropperKeychainBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LottieDropperKeychainBridge.swift; sourceTree = "<group>"; };
+		C0F3EFA21E89088D004B007F /* LottieFlowControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LottieFlowControllerViewController.h; sourceTree = "<group>"; };
+		C0F3EFA31E89088D004B007F /* LottieFlowControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LottieFlowControllerViewController.m; sourceTree = "<group>"; };
 		C747455DF089F6B8CEE6350A /* Pods-LottieDropper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LottieDropper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LottieDropper/Pods-LottieDropper.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -155,8 +158,8 @@
 			isa = PBXGroup;
 			children = (
 				C00416F11E84368B00E92308 /* DropboxLoginable.h */,
-				C00416CF1E84312C00E92308 /* ViewController.h */,
-				C00416D01E84312C00E92308 /* ViewController.m */,
+				C00416CF1E84312C00E92308 /* DropboxAccessViewController.h */,
+				C00416D01E84312C00E92308 /* DropboxAccessViewController.m */,
 			);
 			path = Dropbox;
 			sourceTree = "<group>";
@@ -170,8 +173,9 @@
 				C00416D71E84312C00E92308 /* LaunchScreen.storyboard */,
 				C00416D21E84312C00E92308 /* Main.storyboard */,
 				C00416CA1E84312C00E92308 /* main.m */,
+				C0F3EFA21E89088D004B007F /* LottieFlowControllerViewController.h */,
+				C0F3EFA31E89088D004B007F /* LottieFlowControllerViewController.m */,
 			);
-			name = ApplicationFlow;
 			path = ApplicationFlow;
 			sourceTree = "<group>";
 		};
@@ -379,7 +383,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C00416D11E84312C00E92308 /* ViewController.m in Sources */,
+				C0F3EFA41E89088D004B007F /* LottieFlowControllerViewController.m in Sources */,
+				C00416D11E84312C00E92308 /* DropboxAccessViewController.m in Sources */,
 				C00416CE1E84312C00E92308 /* AppDelegate.m in Sources */,
 				C0F3EF951E88FC1D004B007F /* LottieDropperKeychainBridge.swift in Sources */,
 				C00416CB1E84312C00E92308 /* main.m in Sources */,

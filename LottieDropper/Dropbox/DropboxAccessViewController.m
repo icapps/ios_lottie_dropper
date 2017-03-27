@@ -1,12 +1,12 @@
-#import "ViewController.h"
+#import "DropboxAccessViewController.h"
 
 @import ObjectiveDropboxOfficial;
 
-@interface ViewController ()
+@interface DropboxAccessViewController ()
 
 @end
 
-@implementation ViewController
+@implementation DropboxAccessViewController
 
 #pragma mark - Dropbox actions
 
