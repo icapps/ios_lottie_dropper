@@ -17,6 +17,8 @@
 @end
 
 @implementation DropboxDetailViewModel
+@synthesize fileOnDisk = _fileOnDisk;
+@synthesize json = _json;
 
 -(instancetype)initWithFile: (DBFILESMetadata *) file client: (DBUserClient*) client {
 	self = [super init];
@@ -33,15 +35,20 @@
 
 	NSFileManager *fileManager = [NSFileManager defaultManager];
 	NSURL *outputDirectory = [fileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask][0];
-	NSURL *outputUrl = [outputDirectory URLByAppendingPathComponent:@"test_file_output.txt"];
+	_fileOnDisk = [outputDirectory URLByAppendingPathComponent:self.file.pathLower];
 
-	[[[self.client.filesRoutes downloadUrl:self.file.pathLower overwrite:YES destination:outputUrl] setResponseBlock:^(DBFILESFileMetadata * _Nullable response, DBFILESDownloadError * _Nullable routeError, DBRequestError * _Nullable error, NSURL * _Nonnull destination) {
+	[[[self.client.filesRoutes downloadUrl:self.file.pathLower overwrite:YES destination:self.fileOnDisk] setResponseBlock:^(DBFILESFileMetadata * _Nullable response, DBFILESDownloadError * _Nullable routeError, DBRequestError * _Nullable error, NSURL * _Nonnull destination) {
 		if (response) {
-			NSLog(@"%@\n", response);
 			NSData *data = [[NSFileManager defaultManager] contentsAtPath:[destination path]];
-			NSString *dataStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-			NSLog(@"%@\n", dataStr);
+			NSError *error;
+			self.json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+
+			if (error != nil) {
+				NSLog(@"%@", error);
+			}
+
 		} else {
+			_fileOnDisk = nil;
 			NSLog(@"%@\n%@\n", routeError, error);
 		}
 		done();

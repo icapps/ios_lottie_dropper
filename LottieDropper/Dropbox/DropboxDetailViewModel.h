@@ -21,6 +21,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark: - Dropbox file load
 
+@property (nonatomic, readonly) NSURL * _Nullable fileOnDisk;
+@property (nonatomic, strong) NSDictionary * _Nullable json;
+
 - (void) downloadFile:(void (^) (void)) done;
 
 #pragma mark: - Display info

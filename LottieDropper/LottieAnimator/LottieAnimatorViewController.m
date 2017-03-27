@@ -9,6 +9,8 @@
 #import "LottieAnimatorViewController.h"
 #import "DropboxDetailViewModel.h"
 
+@import Lottie;
+
 @interface LottieAnimatorViewController ()
 
 @end
@@ -17,25 +19,39 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
 	NSLog(@"Animating file %@", self.dropboxDetail.fileName );
-    [self.dropboxDetail downloadFile:^{
+
+	[self.dropboxDetail downloadFile:^{
 		NSLog(@"File downloaded!");
+		[[NSOperationQueue mainQueue] addOperationWithBlock:^{
+			[self loadAnimation];
+		}];
 	}];
+
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+- (void) loadAnimation {
 
-/*
-#pragma mark - Navigation
+	if (self.dropboxDetail.json != nil) {
+		LOTAnimationView *animation = [LOTAnimationView animationFromJSON:self.dropboxDetail.json];
+		animation.translatesAutoresizingMaskIntoConstraints = NO;
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+		[self.view addSubview:animation];
+
+		[[[animation centerXAnchor] constraintEqualToAnchor:self.view.centerXAnchor] setActive:YES];
+		[[[animation centerYAnchor] constraintEqualToAnchor:self.view.centerYAnchor] setActive:YES];
+
+
+		[animation playWithCompletion:^(BOOL animationFinished) {
+				// Do Something
+		}];
+
+	} else {
+		NSLog(@"LottieAnimatorViewController needs a file before animating");
+	}
+
+
 }
-*/
 
 @end
