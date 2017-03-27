@@ -97,11 +97,11 @@
 		C00416BD1E84312C00E92308 = {
 			isa = PBXGroup;
 			children = (
+				65CFC5EC6B9CE7D3392B9582 /* Frameworks */,
 				C00416C81E84312C00E92308 /* LottieDropper */,
 				C00416E21E84312C00E92308 /* LottieDropperTests */,
-				C00416C71E84312C00E92308 /* Products */,
 				0D8C9023D5FB727D9A946732 /* Pods */,
-				65CFC5EC6B9CE7D3392B9582 /* Frameworks */,
+				C00416C71E84312C00E92308 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -117,10 +117,10 @@
 		C00416C81E84312C00E92308 /* LottieDropper */ = {
 			isa = PBXGroup;
 			children = (
+				C0F3EF981E88FE1D004B007F /* ApplicationFlow */,
 				C00416C91E84312C00E92308 /* Bridge */,
 				C0F3EF971E88FDEA004B007F /* Dropbox */,
 				C0F3EF921E88FBE9004B007F /* KeyChain */,
-				C0F3EF981E88FE1D004B007F /* Startup */,
 				C00416D51E84312C00E92308 /* Assets.xcassets */,
 			);
 			path = LottieDropper;
@@ -161,7 +161,7 @@
 			path = Dropbox;
 			sourceTree = "<group>";
 		};
-		C0F3EF981E88FE1D004B007F /* Startup */ = {
+		C0F3EF981E88FE1D004B007F /* ApplicationFlow */ = {
 			isa = PBXGroup;
 			children = (
 				C00416CC1E84312C00E92308 /* AppDelegate.h */,
@@ -171,7 +171,8 @@
 				C00416D21E84312C00E92308 /* Main.storyboard */,
 				C00416CA1E84312C00E92308 /* main.m */,
 			);
-			path = Startup;
+			name = ApplicationFlow;
+			path = ApplicationFlow;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -524,7 +525,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = SCZPF223NC;
-				INFOPLIST_FILE = LottieDropper/Startup/Info.plist;
+				INFOPLIST_FILE = LottieDropper/ApplicationFlow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = be.icapps.lottieDropper;
@@ -542,7 +543,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = SCZPF223NC;
-				INFOPLIST_FILE = LottieDropper/Startup/Info.plist;
+				INFOPLIST_FILE = LottieDropper/ApplicationFlow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = be.icapps.lottieDropper;
