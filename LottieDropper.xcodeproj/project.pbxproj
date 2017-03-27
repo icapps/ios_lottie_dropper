@@ -180,13 +180,13 @@
 		C0F3EF971E88FDEA004B007F /* Dropbox */ = {
 			isa = PBXGroup;
 			children = (
-				C0F3EFA51E890A5C004B007F /* DropBoxBrowserViewController.h */,
-				C0F3EFA61E890A5C004B007F /* DropBoxBrowserViewController.m */,
 				C0F3EFA81E890A7F004B007F /* Dropbox.storyboard */,
 				C00416CF1E84312C00E92308 /* DropboxAccessViewController.h */,
 				C00416D01E84312C00E92308 /* DropboxAccessViewController.m */,
 				C0F3EFAE1E89413F004B007F /* DropboxBrowserCollectionViewCell.h */,
 				C0F3EFAF1E89413F004B007F /* DropboxBrowserCollectionViewCell.m */,
+				C0F3EFA51E890A5C004B007F /* DropBoxBrowserViewController.h */,
+				C0F3EFA61E890A5C004B007F /* DropBoxBrowserViewController.m */,
 				C0F3EFAB1E8922FE004B007F /* DropboxBrowserViewModel.h */,
 				C0F3EFAC1E8922FE004B007F /* DropboxBrowserViewModel.m */,
 				C0F3EFB11E8945C2004B007F /* DropboxDetailViewModel.h */,
@@ -220,7 +220,6 @@
 				C0F3EFB81E894D70004B007F /* LottieAnimatorViewController.h */,
 				C0F3EFB91E894D70004B007F /* LottieAnimatorViewController.m */,
 			);
-			name = LottieAnimator;
 			path = LottieAnimator;
 			sourceTree = "<group>";
 		};

@@ -11,6 +11,7 @@
 #import "DropboxBrowserViewModel.h"
 #import "DropboxDetailViewModel.h"
 #import "DropboxBrowserCollectionViewCell.h"
+#import "LottieAnimatorViewController.h"
 
 @import ObjectiveDropboxOfficial;
 
@@ -33,6 +34,17 @@
 			[self.collectionView reloadData];
 		}];
 	}];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+
+	if ([segue.destinationViewController isKindOfClass:[LottieAnimatorViewController class]]) {
+		LottieAnimatorViewController * animator = segue.destinationViewController;
+		NSIndexPath * selectedIndexPath = [[self.collectionView indexPathsForSelectedItems] firstObject];
+		DropboxDetailViewModel *detail = [self.browserViewModel fileDetailAtIndexPath:selectedIndexPath];
+		animator.dropboxDetail = detail;
+	}
+
 }
 
 #pragma mark: - UICollectionViewDataSource

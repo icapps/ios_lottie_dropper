@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class DropboxDetailViewModel;
+
 @interface LottieAnimatorViewController : UIViewController
+
+@property (nonatomic, strong) DropboxDetailViewModel *dropboxDetail;
 
 @end

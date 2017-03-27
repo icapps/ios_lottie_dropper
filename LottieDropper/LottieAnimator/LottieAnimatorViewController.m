@@ -7,6 +7,7 @@
 //
 
 #import "LottieAnimatorViewController.h"
+#import "DropboxDetailViewModel.h"
 
 @interface LottieAnimatorViewController ()
 
@@ -16,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+	NSLog(@"Animating file %@", self.dropboxDetail.fileName );
     // Do any additional setup after loading the view.
 }
 
