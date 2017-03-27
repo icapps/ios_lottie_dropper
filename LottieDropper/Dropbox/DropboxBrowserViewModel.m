@@ -97,7 +97,7 @@
 - (NSArray<DropboxDetailViewModel *> *)fileDetails {
 	NSMutableArray <DropboxDetailViewModel *> *mapped = [NSMutableArray arrayWithCapacity:[self.entries count]];
 	[self.entries enumerateObjectsUsingBlock:^(DBFILESMetadata * file, NSUInteger idx, BOOL *stop) {
-		[mapped addObject: [[DropboxDetailViewModel alloc] initWithFile:file]];
+		[mapped addObject: [[DropboxDetailViewModel alloc] initWithFile:file client:self.client]];
 	}];
 
 	NSComparisonResult (^sortBlock)(id, id) = ^(DropboxDetailViewModel * obj1, DropboxDetailViewModel * obj2)

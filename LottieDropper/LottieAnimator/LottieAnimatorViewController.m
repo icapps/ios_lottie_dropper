@@ -18,7 +18,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	NSLog(@"Animating file %@", self.dropboxDetail.fileName );
-    // Do any additional setup after loading the view.
+    [self.dropboxDetail downloadFile:^{
+		NSLog(@"File downloaded!");
+	}];
 }
 
 - (void)didReceiveMemoryWarning {

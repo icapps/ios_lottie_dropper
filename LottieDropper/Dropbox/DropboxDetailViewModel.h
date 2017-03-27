@@ -11,12 +11,17 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class DBFILESMetadata;
+@class DBUserClient;
 
 @interface DropboxDetailViewModel : NSObject
 
 @property (nonatomic, strong) DBFILESMetadata * file;
 
--(instancetype)initWithFile: (DBFILESMetadata *) file;
+-(instancetype)initWithFile: (DBFILESMetadata *) file client: (DBUserClient *)client;
+
+#pragma mark: - Dropbox file load
+
+- (void) downloadFile:(void (^) (void)) done;
 
 #pragma mark: - Display info
 
