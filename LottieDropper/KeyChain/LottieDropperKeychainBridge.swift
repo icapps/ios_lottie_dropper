@@ -17,6 +17,7 @@ extension Keys {
 class LottieDropperKeyChainBridge: NSObject {
 	static let shared = LottieDropperKeyChainBridge()
 
+	/// Set and Get the access token which is stored in the Keychain.
 	var dropBoxAccessToken: DBAccessToken? {
 		get {
 			guard let token = Keychain[.dropBoxAccessToken], let uid = Keychain[.dropBoxAccessTokenUID] else {
