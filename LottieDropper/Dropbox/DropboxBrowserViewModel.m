@@ -99,10 +99,15 @@
 	[self.entries enumerateObjectsUsingBlock:^(DBFILESMetadata * file, NSUInteger idx, BOOL *stop) {
 		[mapped addObject: [[DropboxDetailViewModel alloc] initWithFile:file]];
 	}];
-	return mapped;
+
+	NSComparisonResult (^sortBlock)(id, id) = ^(DropboxDetailViewModel * obj1, DropboxDetailViewModel * obj2)
+	{
+		return [[obj1 fileName] compare: [obj2 fileName]];
+	};
+	return [mapped sortedArrayUsingComparator:sortBlock];
 }
 
-- (DropboxDetailViewModel* _Nullable) fileNameAtIndexPath:(NSIndexPath*) indexPath {
+- (DropboxDetailViewModel* _Nullable) fileDetailAtIndexPath:(NSIndexPath*) indexPath {
 	if (indexPath.row > self.fileDetails.count) {
 		return nil;
 	}

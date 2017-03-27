@@ -29,6 +29,9 @@
 	self.browserViewModel = [[DropboxBrowserViewModel alloc] init];
 	[self.browserViewModel initializeDropboxClient:^{
 		NSLog(@"Client has files %@", self.browserViewModel.fileDetails);
+		[[NSOperationQueue mainQueue] addOperationWithBlock:^{
+			[self.collectionView reloadData];
+		}];
 	}];
 }
 
