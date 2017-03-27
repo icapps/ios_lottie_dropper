@@ -71,7 +71,7 @@
 		C0F3EFAF1E89413F004B007F /* DropboxBrowserCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropboxBrowserCollectionViewCell.m; sourceTree = "<group>"; };
 		C0F3EFB11E8945C2004B007F /* DropboxDetailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropboxDetailViewModel.h; sourceTree = "<group>"; };
 		C0F3EFB21E8945C2004B007F /* DropboxDetailViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropboxDetailViewModel.m; sourceTree = "<group>"; };
-		C0F3EFB61E894D4D004B007F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LottieDropper/ApplicationFlow/Base.lproj/LottieAnimator.storyboard; sourceTree = SOURCE_ROOT; };
+		C0F3EFB61E894D4D004B007F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LottieAnimator.storyboard; sourceTree = "<group>"; };
 		C0F3EFB81E894D70004B007F /* LottieAnimatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LottieAnimatorViewController.h; sourceTree = "<group>"; };
 		C0F3EFB91E894D70004B007F /* LottieAnimatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LottieAnimatorViewController.m; sourceTree = "<group>"; };
 		C0F3EFBB1E894DBB004B007F /* LottieAnimatorDetailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LottieAnimatorDetailViewModel.h; sourceTree = "<group>"; };
@@ -142,11 +142,11 @@
 		C00416C81E84312C00E92308 /* LottieDropper */ = {
 			isa = PBXGroup;
 			children = (
-				C0F3EFB41E894D20004B007F /* LottieAnimator */,
 				C0F3EF981E88FE1D004B007F /* ApplicationFlow */,
 				C00416C91E84312C00E92308 /* Bridge */,
 				C0F3EF971E88FDEA004B007F /* Dropbox */,
 				C0F3EF921E88FBE9004B007F /* KeyChain */,
+				C0F3EFB41E894D20004B007F /* LottieAnimator */,
 				C00416D51E84312C00E92308 /* Assets.xcassets */,
 			);
 			path = LottieDropper;
@@ -180,18 +180,18 @@
 		C0F3EF971E88FDEA004B007F /* Dropbox */ = {
 			isa = PBXGroup;
 			children = (
-				C0F3EFA81E890A7F004B007F /* Dropbox.storyboard */,
-				C0F3EFAE1E89413F004B007F /* DropboxBrowserCollectionViewCell.h */,
-				C0F3EFAF1E89413F004B007F /* DropboxBrowserCollectionViewCell.m */,
-				C00416F11E84368B00E92308 /* DropboxLoginable.h */,
-				C00416CF1E84312C00E92308 /* DropboxAccessViewController.h */,
-				C00416D01E84312C00E92308 /* DropboxAccessViewController.m */,
 				C0F3EFA51E890A5C004B007F /* DropBoxBrowserViewController.h */,
 				C0F3EFA61E890A5C004B007F /* DropBoxBrowserViewController.m */,
+				C0F3EFA81E890A7F004B007F /* Dropbox.storyboard */,
+				C00416CF1E84312C00E92308 /* DropboxAccessViewController.h */,
+				C00416D01E84312C00E92308 /* DropboxAccessViewController.m */,
+				C0F3EFAE1E89413F004B007F /* DropboxBrowserCollectionViewCell.h */,
+				C0F3EFAF1E89413F004B007F /* DropboxBrowserCollectionViewCell.m */,
 				C0F3EFAB1E8922FE004B007F /* DropboxBrowserViewModel.h */,
 				C0F3EFAC1E8922FE004B007F /* DropboxBrowserViewModel.m */,
 				C0F3EFB11E8945C2004B007F /* DropboxDetailViewModel.h */,
 				C0F3EFB21E8945C2004B007F /* DropboxDetailViewModel.m */,
+				C00416F11E84368B00E92308 /* DropboxLoginable.h */,
 			);
 			path = Dropbox;
 			sourceTree = "<group>";
@@ -203,10 +203,10 @@
 				C00416CD1E84312C00E92308 /* AppDelegate.m */,
 				C00416DA1E84312C00E92308 /* Info.plist */,
 				C00416D71E84312C00E92308 /* LaunchScreen.storyboard */,
-				C00416D21E84312C00E92308 /* Main.storyboard */,
-				C00416CA1E84312C00E92308 /* main.m */,
 				C0F3EFA21E89088D004B007F /* LottieFlowControllerViewController.h */,
 				C0F3EFA31E89088D004B007F /* LottieFlowControllerViewController.m */,
+				C00416D21E84312C00E92308 /* Main.storyboard */,
+				C00416CA1E84312C00E92308 /* main.m */,
 			);
 			path = ApplicationFlow;
 			sourceTree = "<group>";
@@ -214,13 +214,14 @@
 		C0F3EFB41E894D20004B007F /* LottieAnimator */ = {
 			isa = PBXGroup;
 			children = (
-				C0F3EFB81E894D70004B007F /* LottieAnimatorViewController.h */,
-				C0F3EFB91E894D70004B007F /* LottieAnimatorViewController.m */,
+				C0F3EFB51E894D4D004B007F /* LottieAnimator.storyboard */,
 				C0F3EFBB1E894DBB004B007F /* LottieAnimatorDetailViewModel.h */,
 				C0F3EFBC1E894DBB004B007F /* LottieAnimatorDetailViewModel.m */,
-				C0F3EFB51E894D4D004B007F /* LottieAnimator.storyboard */,
+				C0F3EFB81E894D70004B007F /* LottieAnimatorViewController.h */,
+				C0F3EFB91E894D70004B007F /* LottieAnimatorViewController.m */,
 			);
 			name = LottieAnimator;
+			path = LottieAnimator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -486,7 +487,7 @@
 				C0F3EFA91E890A7F004B007F /* Base */,
 			);
 			name = Dropbox.storyboard;
-			path = ../ApplicationFlow;
+			path = .;
 			sourceTree = "<group>";
 		};
 		C0F3EFB51E894D4D004B007F /* LottieAnimator.storyboard */ = {
@@ -495,7 +496,7 @@
 				C0F3EFB61E894D4D004B007F /* Base */,
 			);
 			name = LottieAnimator.storyboard;
-			path = Dropbox;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
