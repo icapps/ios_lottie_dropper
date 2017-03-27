@@ -21,6 +21,8 @@
 		C0F3EFA71E890A5C004B007F /* DropBoxBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F3EFA61E890A5C004B007F /* DropBoxBrowserViewController.m */; };
 		C0F3EFAA1E890A7F004B007F /* Dropbox.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0F3EFA81E890A7F004B007F /* Dropbox.storyboard */; };
 		C0F3EFAD1E8922FE004B007F /* DropboxBrowserViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F3EFAC1E8922FE004B007F /* DropboxBrowserViewModel.m */; };
+		C0F3EFB01E89413F004B007F /* DropboxBrowserCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F3EFAF1E89413F004B007F /* DropboxBrowserCollectionViewCell.m */; };
+		C0F3EFB31E8945C2004B007F /* DropboxDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F3EFB21E8945C2004B007F /* DropboxDetailViewModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,10 @@
 		C0F3EFA91E890A7F004B007F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Dropbox.storyboard; sourceTree = "<group>"; };
 		C0F3EFAB1E8922FE004B007F /* DropboxBrowserViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropboxBrowserViewModel.h; sourceTree = "<group>"; };
 		C0F3EFAC1E8922FE004B007F /* DropboxBrowserViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropboxBrowserViewModel.m; sourceTree = "<group>"; };
+		C0F3EFAE1E89413F004B007F /* DropboxBrowserCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropboxBrowserCollectionViewCell.h; sourceTree = "<group>"; };
+		C0F3EFAF1E89413F004B007F /* DropboxBrowserCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropboxBrowserCollectionViewCell.m; sourceTree = "<group>"; };
+		C0F3EFB11E8945C2004B007F /* DropboxDetailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropboxDetailViewModel.h; sourceTree = "<group>"; };
+		C0F3EFB21E8945C2004B007F /* DropboxDetailViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropboxDetailViewModel.m; sourceTree = "<group>"; };
 		C747455DF089F6B8CEE6350A /* Pods-LottieDropper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LottieDropper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LottieDropper/Pods-LottieDropper.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -166,6 +172,8 @@
 			isa = PBXGroup;
 			children = (
 				C0F3EFA81E890A7F004B007F /* Dropbox.storyboard */,
+				C0F3EFAE1E89413F004B007F /* DropboxBrowserCollectionViewCell.h */,
+				C0F3EFAF1E89413F004B007F /* DropboxBrowserCollectionViewCell.m */,
 				C00416F11E84368B00E92308 /* DropboxLoginable.h */,
 				C00416CF1E84312C00E92308 /* DropboxAccessViewController.h */,
 				C00416D01E84312C00E92308 /* DropboxAccessViewController.m */,
@@ -173,6 +181,8 @@
 				C0F3EFA61E890A5C004B007F /* DropBoxBrowserViewController.m */,
 				C0F3EFAB1E8922FE004B007F /* DropboxBrowserViewModel.h */,
 				C0F3EFAC1E8922FE004B007F /* DropboxBrowserViewModel.m */,
+				C0F3EFB11E8945C2004B007F /* DropboxDetailViewModel.h */,
+				C0F3EFB21E8945C2004B007F /* DropboxDetailViewModel.m */,
 			);
 			path = Dropbox;
 			sourceTree = "<group>";
@@ -402,7 +412,9 @@
 				C0F3EFA71E890A5C004B007F /* DropBoxBrowserViewController.m in Sources */,
 				C0F3EFAD1E8922FE004B007F /* DropboxBrowserViewModel.m in Sources */,
 				C00416CE1E84312C00E92308 /* AppDelegate.m in Sources */,
+				C0F3EFB31E8945C2004B007F /* DropboxDetailViewModel.m in Sources */,
 				C0F3EF951E88FC1D004B007F /* LottieDropperKeychainBridge.swift in Sources */,
+				C0F3EFB01E89413F004B007F /* DropboxBrowserCollectionViewCell.m in Sources */,
 				C00416CB1E84312C00E92308 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

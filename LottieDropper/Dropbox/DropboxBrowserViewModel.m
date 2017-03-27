@@ -8,6 +8,7 @@
 
 #import "DropboxBrowserViewModel.h"
 #import "LottieDropper-Swift.h"
+#import "DropboxDetailViewModel.h"
 
 @interface DropboxBrowserViewModel ()
 
@@ -93,12 +94,20 @@
 
 #pragma mark: - File info
 
-- (NSArray<NSString *> *)fileNames {
-	NSMutableArray <NSString *> *mapped = [NSMutableArray arrayWithCapacity:[self.entries count]];
-	[self.entries enumerateObjectsUsingBlock:^(DBFILESMetadata * obj, NSUInteger idx, BOOL *stop) {
-		[mapped addObject:obj.name];
+- (NSArray<DropboxDetailViewModel *> *)fileDetails {
+	NSMutableArray <DropboxDetailViewModel *> *mapped = [NSMutableArray arrayWithCapacity:[self.entries count]];
+	[self.entries enumerateObjectsUsingBlock:^(DBFILESMetadata * file, NSUInteger idx, BOOL *stop) {
+		[mapped addObject: [[DropboxDetailViewModel alloc] initWithFile:file]];
 	}];
 	return mapped;
+}
+
+- (DropboxDetailViewModel* _Nullable) fileNameAtIndexPath:(NSIndexPath*) indexPath {
+	if (indexPath.row > self.fileDetails.count) {
+		return nil;
+	}
+
+	return self.fileDetails[indexPath.row];
 }
 
 @end

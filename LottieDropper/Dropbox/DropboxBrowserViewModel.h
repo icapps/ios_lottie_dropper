@@ -12,14 +12,23 @@ NS_ASSUME_NONNULL_BEGIN
 
 @import ObjectiveDropboxOfficial;
 
-	/// If a client has been
+@class DropboxDetailViewModel;
+
+#pragma mark: - Access Dropbox for Client
+
+/// If a client has been authorized the client stored in the keychain will be loaded to load files from a folder
+/// If a client is provided then that client will be used.
 @interface DropboxBrowserViewModel : NSObject
 
 @property (nonatomic, strong) DBUserClient * client;
 
 - (void)initializeDropboxClient: (void (^)(void)) done;
 
-- (NSArray <NSString*> *) fileNames;
+#pragma mark: - File info
+
+- (NSArray <DropboxDetailViewModel*> *) fileDetails;
+
+- (DropboxDetailViewModel* _Nullable) fileDetailAtIndexPath:(NSIndexPath*) indexPath;
 
 @end
 
