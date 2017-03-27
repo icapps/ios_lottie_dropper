@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AED0B2B187F81C18650CD191 /* Pods_LottyDropper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0943CE47240ED7A0E33DCFBC /* Pods_LottyDropper.framework */; };
+		24FAB8B0084EFF1473CDA9B1 /* Pods_LottieDropperTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844D526C8B6A9DD412568E06 /* Pods_LottieDropperTests.framework */; };
+		9CD6F9095CD9DE104585E66F /* Pods_LottieDropper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D75ECD58F61901F591C49DC /* Pods_LottieDropper.framework */; };
 		C00416CB1E84312C00E92308 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C00416CA1E84312C00E92308 /* main.m */; };
 		C00416CE1E84312C00E92308 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C00416CD1E84312C00E92308 /* AppDelegate.m */; };
 		C00416D11E84312C00E92308 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C00416D01E84312C00E92308 /* ViewController.m */; };
@@ -16,7 +17,6 @@
 		C00416D91E84312C00E92308 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C00416D71E84312C00E92308 /* LaunchScreen.storyboard */; };
 		C00416E41E84312C00E92308 /* LottyDropperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C00416E31E84312C00E92308 /* LottyDropperTests.m */; };
 		C0F3EF951E88FC1D004B007F /* LottieDropperKeychainBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F3EF941E88FC1D004B007F /* LottieDropperKeychainBridge.swift */; };
-		FE5F45A1DC9F69B6B21FA590 /* Pods_LottyDropperTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 285457B910EF7808A0E1C8FF /* Pods_LottyDropperTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,13 +30,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0943CE47240ED7A0E33DCFBC /* Pods_LottyDropper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LottyDropper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		285457B910EF7808A0E1C8FF /* Pods_LottyDropperTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LottyDropperTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		47D06763D77332081AF4BED9 /* Pods-LottyDropper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LottyDropper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LottyDropper/Pods-LottyDropper.debug.xcconfig"; sourceTree = "<group>"; };
-		5A84B277980AABA920B7082C /* Pods-LottyDropperTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LottyDropperTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LottyDropperTests/Pods-LottyDropperTests.debug.xcconfig"; sourceTree = "<group>"; };
-		5B4F7087CF708FAADEC49E04 /* Pods-LottyDropper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LottyDropper.release.xcconfig"; path = "Pods/Target Support Files/Pods-LottyDropper/Pods-LottyDropper.release.xcconfig"; sourceTree = "<group>"; };
-		7A80ED3BF6332F3E48107262 /* Pods-LottyDropperTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LottyDropperTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LottyDropperTests/Pods-LottyDropperTests.release.xcconfig"; sourceTree = "<group>"; };
-		C00416C61E84312C00E92308 /* LottyDropper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LottyDropper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A55C7422B66AA145401BBAA /* Pods-LottieDropper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LottieDropper.release.xcconfig"; path = "Pods/Target Support Files/Pods-LottieDropper/Pods-LottieDropper.release.xcconfig"; sourceTree = "<group>"; };
+		1D75ECD58F61901F591C49DC /* Pods_LottieDropper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LottieDropper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		44372067C7C3EF637BE96C8F /* Pods-LottieDropperTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LottieDropperTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LottieDropperTests/Pods-LottieDropperTests.release.xcconfig"; sourceTree = "<group>"; };
+		844D526C8B6A9DD412568E06 /* Pods_LottieDropperTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LottieDropperTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C00416C61E84312C00E92308 /* LottieDropper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LottieDropper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C00416CA1E84312C00E92308 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C00416CC1E84312C00E92308 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C00416CD1E84312C00E92308 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -46,12 +44,14 @@
 		C00416D51E84312C00E92308 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C00416D81E84312C00E92308 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C00416DA1E84312C00E92308 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C00416DF1E84312C00E92308 /* LottyDropperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LottyDropperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C00416DF1E84312C00E92308 /* LottieDropperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LottieDropperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C00416E31E84312C00E92308 /* LottyDropperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LottyDropperTests.m; sourceTree = "<group>"; };
 		C00416E51E84312C00E92308 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C00416F11E84368B00E92308 /* DropboxLoginable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DropboxLoginable.h; sourceTree = "<group>"; };
-		C0F3EF931E88FC1D004B007F /* LottyDropper-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LottyDropper-Bridging-Header.h"; sourceTree = "<group>"; };
-		C0F3EF941E88FC1D004B007F /* LottieDropperKeychainBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LottieDropperKeychainBridge.swift; path = KeyChainBridge/LottieDropperKeychainBridge.swift; sourceTree = "<group>"; };
+		C0A63869B56FE88FD2377C2C /* Pods-LottieDropperTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LottieDropperTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LottieDropperTests/Pods-LottieDropperTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C0F3EF931E88FC1D004B007F /* LottieDropper-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LottieDropper-Bridging-Header.h"; sourceTree = "<group>"; };
+		C0F3EF941E88FC1D004B007F /* LottieDropperKeychainBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LottieDropperKeychainBridge.swift; sourceTree = "<group>"; };
+		C747455DF089F6B8CEE6350A /* Pods-LottieDropper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LottieDropper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LottieDropper/Pods-LottieDropper.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AED0B2B187F81C18650CD191 /* Pods_LottyDropper.framework in Frameworks */,
+				9CD6F9095CD9DE104585E66F /* Pods_LottieDropper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,87 +67,80 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE5F45A1DC9F69B6B21FA590 /* Pods_LottyDropperTests.framework in Frameworks */,
+				24FAB8B0084EFF1473CDA9B1 /* Pods_LottieDropperTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1DA64F51DFB38CC3632D4EEF /* Frameworks */ = {
+		0D8C9023D5FB727D9A946732 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				0943CE47240ED7A0E33DCFBC /* Pods_LottyDropper.framework */,
-				285457B910EF7808A0E1C8FF /* Pods_LottyDropperTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		4AE9E4B0881243AB1F1A50DB /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				47D06763D77332081AF4BED9 /* Pods-LottyDropper.debug.xcconfig */,
-				5B4F7087CF708FAADEC49E04 /* Pods-LottyDropper.release.xcconfig */,
-				5A84B277980AABA920B7082C /* Pods-LottyDropperTests.debug.xcconfig */,
-				7A80ED3BF6332F3E48107262 /* Pods-LottyDropperTests.release.xcconfig */,
+				C747455DF089F6B8CEE6350A /* Pods-LottieDropper.debug.xcconfig */,
+				0A55C7422B66AA145401BBAA /* Pods-LottieDropper.release.xcconfig */,
+				C0A63869B56FE88FD2377C2C /* Pods-LottieDropperTests.debug.xcconfig */,
+				44372067C7C3EF637BE96C8F /* Pods-LottieDropperTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		65CFC5EC6B9CE7D3392B9582 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1D75ECD58F61901F591C49DC /* Pods_LottieDropper.framework */,
+				844D526C8B6A9DD412568E06 /* Pods_LottieDropperTests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		C00416BD1E84312C00E92308 = {
 			isa = PBXGroup;
 			children = (
-				C00416C81E84312C00E92308 /* LottyDropper */,
-				C00416E21E84312C00E92308 /* LottyDropperTests */,
+				C00416C81E84312C00E92308 /* LottieDropper */,
+				C00416E21E84312C00E92308 /* LottieDropperTests */,
 				C00416C71E84312C00E92308 /* Products */,
-				4AE9E4B0881243AB1F1A50DB /* Pods */,
-				1DA64F51DFB38CC3632D4EEF /* Frameworks */,
+				0D8C9023D5FB727D9A946732 /* Pods */,
+				65CFC5EC6B9CE7D3392B9582 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		C00416C71E84312C00E92308 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C00416C61E84312C00E92308 /* LottyDropper.app */,
-				C00416DF1E84312C00E92308 /* LottyDropperTests.xctest */,
+				C00416C61E84312C00E92308 /* LottieDropper.app */,
+				C00416DF1E84312C00E92308 /* LottieDropperTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C00416C81E84312C00E92308 /* LottyDropper */ = {
+		C00416C81E84312C00E92308 /* LottieDropper */ = {
 			isa = PBXGroup;
 			children = (
+				C00416C91E84312C00E92308 /* Bridge */,
+				C0F3EF971E88FDEA004B007F /* Dropbox */,
 				C0F3EF921E88FBE9004B007F /* KeyChain */,
-				C00416F11E84368B00E92308 /* DropboxLoginable.h */,
-				C00416CC1E84312C00E92308 /* AppDelegate.h */,
-				C00416CD1E84312C00E92308 /* AppDelegate.m */,
-				C00416CF1E84312C00E92308 /* ViewController.h */,
-				C00416D01E84312C00E92308 /* ViewController.m */,
-				C00416D21E84312C00E92308 /* Main.storyboard */,
+				C0F3EF981E88FE1D004B007F /* Startup */,
 				C00416D51E84312C00E92308 /* Assets.xcassets */,
-				C00416D71E84312C00E92308 /* LaunchScreen.storyboard */,
-				C00416DA1E84312C00E92308 /* Info.plist */,
-				C0F3EF931E88FC1D004B007F /* LottyDropper-Bridging-Header.h */,
-				C00416C91E84312C00E92308 /* Supporting Files */,
 			);
-			path = LottyDropper;
+			path = LottieDropper;
 			sourceTree = "<group>";
 		};
-		C00416C91E84312C00E92308 /* Supporting Files */ = {
+		C00416C91E84312C00E92308 /* Bridge */ = {
 			isa = PBXGroup;
 			children = (
-				C00416CA1E84312C00E92308 /* main.m */,
+				C0F3EF931E88FC1D004B007F /* LottieDropper-Bridging-Header.h */,
 			);
-			name = "Supporting Files";
+			path = Bridge;
 			sourceTree = "<group>";
 		};
-		C00416E21E84312C00E92308 /* LottyDropperTests */ = {
+		C00416E21E84312C00E92308 /* LottieDropperTests */ = {
 			isa = PBXGroup;
 			children = (
-				C00416E31E84312C00E92308 /* LottyDropperTests.m */,
 				C00416E51E84312C00E92308 /* Info.plist */,
+				C00416E31E84312C00E92308 /* LottyDropperTests.m */,
 			);
-			path = LottyDropperTests;
+			path = LottieDropperTests;
 			sourceTree = "<group>";
 		};
 		C0F3EF921E88FBE9004B007F /* KeyChain */ = {
@@ -155,51 +148,74 @@
 			children = (
 				C0F3EF941E88FC1D004B007F /* LottieDropperKeychainBridge.swift */,
 			);
-			name = KeyChain;
+			path = KeyChain;
+			sourceTree = "<group>";
+		};
+		C0F3EF971E88FDEA004B007F /* Dropbox */ = {
+			isa = PBXGroup;
+			children = (
+				C00416F11E84368B00E92308 /* DropboxLoginable.h */,
+				C00416CF1E84312C00E92308 /* ViewController.h */,
+				C00416D01E84312C00E92308 /* ViewController.m */,
+			);
+			path = Dropbox;
+			sourceTree = "<group>";
+		};
+		C0F3EF981E88FE1D004B007F /* Startup */ = {
+			isa = PBXGroup;
+			children = (
+				C00416CC1E84312C00E92308 /* AppDelegate.h */,
+				C00416CD1E84312C00E92308 /* AppDelegate.m */,
+				C00416DA1E84312C00E92308 /* Info.plist */,
+				C00416D71E84312C00E92308 /* LaunchScreen.storyboard */,
+				C00416D21E84312C00E92308 /* Main.storyboard */,
+				C00416CA1E84312C00E92308 /* main.m */,
+			);
+			path = Startup;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C00416C51E84312C00E92308 /* LottyDropper */ = {
+		C00416C51E84312C00E92308 /* LottieDropper */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C00416E81E84312C00E92308 /* Build configuration list for PBXNativeTarget "LottyDropper" */;
+			buildConfigurationList = C00416E81E84312C00E92308 /* Build configuration list for PBXNativeTarget "LottieDropper" */;
 			buildPhases = (
-				69F9BF0783FD956698BE5DBE /* [CP] Check Pods Manifest.lock */,
+				9F82346F31DEBD1056AF53D2 /* [CP] Check Pods Manifest.lock */,
 				C00416C21E84312C00E92308 /* Sources */,
 				C00416C31E84312C00E92308 /* Frameworks */,
 				C00416C41E84312C00E92308 /* Resources */,
-				8C9839EB30F70F27248574D6 /* [CP] Embed Pods Frameworks */,
-				58062B5DC7DB4D76D0338B4C /* [CP] Copy Pods Resources */,
+				8398A4E09D66138F97BE2043 /* [CP] Embed Pods Frameworks */,
+				D156056890FE0C4353D40AB5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = LottyDropper;
+			name = LottieDropper;
 			productName = LottyDropper;
-			productReference = C00416C61E84312C00E92308 /* LottyDropper.app */;
+			productReference = C00416C61E84312C00E92308 /* LottieDropper.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C00416DE1E84312C00E92308 /* LottyDropperTests */ = {
+		C00416DE1E84312C00E92308 /* LottieDropperTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C00416EB1E84312C00E92308 /* Build configuration list for PBXNativeTarget "LottyDropperTests" */;
+			buildConfigurationList = C00416EB1E84312C00E92308 /* Build configuration list for PBXNativeTarget "LottieDropperTests" */;
 			buildPhases = (
-				4A3F7117F6E38965C7C6D253 /* [CP] Check Pods Manifest.lock */,
+				F1A64A64FBB3436C0646B57B /* [CP] Check Pods Manifest.lock */,
 				C00416DB1E84312C00E92308 /* Sources */,
 				C00416DC1E84312C00E92308 /* Frameworks */,
 				C00416DD1E84312C00E92308 /* Resources */,
-				2A9642E6E0B66BFF4BB21440 /* [CP] Embed Pods Frameworks */,
-				C20B0CB7066A0962AC39E61E /* [CP] Copy Pods Resources */,
+				4D153C38DA6AF97282D20CAD /* [CP] Embed Pods Frameworks */,
+				68EEBD8E0BD02F863382ADE5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				C00416E11E84312C00E92308 /* PBXTargetDependency */,
 			);
-			name = LottyDropperTests;
+			name = LottieDropperTests;
 			productName = LottyDropperTests;
-			productReference = C00416DF1E84312C00E92308 /* LottyDropperTests.xctest */;
+			productReference = C00416DF1E84312C00E92308 /* LottieDropperTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -225,7 +241,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C00416C11E84312C00E92308 /* Build configuration list for PBXProject "LottyDropper" */;
+			buildConfigurationList = C00416C11E84312C00E92308 /* Build configuration list for PBXProject "LottieDropper" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -238,8 +254,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C00416C51E84312C00E92308 /* LottyDropper */,
-				C00416DE1E84312C00E92308 /* LottyDropperTests */,
+				C00416C51E84312C00E92308 /* LottieDropper */,
+				C00416DE1E84312C00E92308 /* LottieDropperTests */,
 			);
 		};
 /* End PBXProject section */
@@ -265,7 +281,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2A9642E6E0B66BFF4BB21440 /* [CP] Embed Pods Frameworks */ = {
+		4D153C38DA6AF97282D20CAD /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -277,10 +293,40 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LottyDropperTests/Pods-LottyDropperTests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LottieDropperTests/Pods-LottieDropperTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4A3F7117F6E38965C7C6D253 /* [CP] Check Pods Manifest.lock */ = {
+		68EEBD8E0BD02F863382ADE5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LottieDropperTests/Pods-LottieDropperTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8398A4E09D66138F97BE2043 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LottieDropper/Pods-LottieDropper-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9F82346F31DEBD1056AF53D2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -295,7 +341,7 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		58062B5DC7DB4D76D0338B4C /* [CP] Copy Pods Resources */ = {
+		D156056890FE0C4353D40AB5 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -307,10 +353,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LottyDropper/Pods-LottyDropper-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LottieDropper/Pods-LottieDropper-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		69F9BF0783FD956698BE5DBE /* [CP] Check Pods Manifest.lock */ = {
+		F1A64A64FBB3436C0646B57B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -323,36 +369,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		8C9839EB30F70F27248574D6 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LottyDropper/Pods-LottyDropper-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C20B0CB7066A0962AC39E61E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LottyDropperTests/Pods-LottyDropperTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -382,7 +398,7 @@
 /* Begin PBXTargetDependency section */
 		C00416E11E84312C00E92308 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C00416C51E84312C00E92308 /* LottyDropper */;
+			target = C00416C51E84312C00E92308 /* LottieDropper */;
 			targetProxy = C00416E01E84312C00E92308 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -394,6 +410,7 @@
 				C00416D31E84312C00E92308 /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		C00416D71E84312C00E92308 /* LaunchScreen.storyboard */ = {
@@ -402,6 +419,7 @@
 				C00416D81E84312C00E92308 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -501,17 +519,17 @@
 		};
 		C00416E91E84312C00E92308 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 47D06763D77332081AF4BED9 /* Pods-LottyDropper.debug.xcconfig */;
+			baseConfigurationReference = C747455DF089F6B8CEE6350A /* Pods-LottieDropper.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = SCZPF223NC;
-				INFOPLIST_FILE = LottyDropper/Info.plist;
+				INFOPLIST_FILE = LottieDropper/Startup/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = be.icapps.LottyDropper;
+				PRODUCT_BUNDLE_IDENTIFIER = be.icapps.lottieDropper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "LottyDropper/LottyDropper-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "LottieDropper/Bridge/LottieDropper-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -519,57 +537,57 @@
 		};
 		C00416EA1E84312C00E92308 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B4F7087CF708FAADEC49E04 /* Pods-LottyDropper.release.xcconfig */;
+			baseConfigurationReference = 0A55C7422B66AA145401BBAA /* Pods-LottieDropper.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = SCZPF223NC;
-				INFOPLIST_FILE = LottyDropper/Info.plist;
+				INFOPLIST_FILE = LottieDropper/Startup/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = be.icapps.LottyDropper;
+				PRODUCT_BUNDLE_IDENTIFIER = be.icapps.lottieDropper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "LottyDropper/LottyDropper-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "LottieDropper/Bridge/LottieDropper-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		C00416EC1E84312C00E92308 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5A84B277980AABA920B7082C /* Pods-LottyDropperTests.debug.xcconfig */;
+			baseConfigurationReference = C0A63869B56FE88FD2377C2C /* Pods-LottieDropperTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = SCZPF223NC;
-				INFOPLIST_FILE = LottyDropperTests/Info.plist;
+				INFOPLIST_FILE = LottieDropperTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = be.icapps.LottyDropperTests;
+				PRODUCT_BUNDLE_IDENTIFIER = be.icapps.lottieDropperTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LottyDropper.app/LottyDropper";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LottieDropper.app/LottieDropper";
 			};
 			name = Debug;
 		};
 		C00416ED1E84312C00E92308 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7A80ED3BF6332F3E48107262 /* Pods-LottyDropperTests.release.xcconfig */;
+			baseConfigurationReference = 44372067C7C3EF637BE96C8F /* Pods-LottieDropperTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = SCZPF223NC;
-				INFOPLIST_FILE = LottyDropperTests/Info.plist;
+				INFOPLIST_FILE = LottieDropperTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = be.icapps.LottyDropperTests;
+				PRODUCT_BUNDLE_IDENTIFIER = be.icapps.lottieDropperTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LottyDropper.app/LottyDropper";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LottieDropper.app/LottieDropper";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C00416C11E84312C00E92308 /* Build configuration list for PBXProject "LottyDropper" */ = {
+		C00416C11E84312C00E92308 /* Build configuration list for PBXProject "LottieDropper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C00416E61E84312C00E92308 /* Debug */,
@@ -578,7 +596,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C00416E81E84312C00E92308 /* Build configuration list for PBXNativeTarget "LottyDropper" */ = {
+		C00416E81E84312C00E92308 /* Build configuration list for PBXNativeTarget "LottieDropper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C00416E91E84312C00E92308 /* Debug */,
@@ -587,7 +605,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C00416EB1E84312C00E92308 /* Build configuration list for PBXNativeTarget "LottyDropperTests" */ = {
+		C00416EB1E84312C00E92308 /* Build configuration list for PBXNativeTarget "LottieDropperTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C00416EC1E84312C00E92308 /* Debug */,

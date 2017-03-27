@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_LottyDropperTestsVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_LottyDropperTestsVersionString[];
+FOUNDATION_EXPORT double Pods_LottieDropperTestsVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_LottieDropperTestsVersionString[];
 

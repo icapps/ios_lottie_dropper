@@ -8,11 +8,11 @@
 
 #import <XCTest/XCTest.h>
 
-@interface LottyDropperTests : XCTestCase
+@interface LottieDropperTests : XCTestCase
 
 @end
 
-@implementation LottyDropperTests
+@implementation LottieDropperTests
 
 - (void)setUp {
     [super setUp];

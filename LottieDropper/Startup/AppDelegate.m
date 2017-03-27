@@ -1,14 +1,8 @@
-//
-//  AppDelegate.m
-//  LottyDropper
-//
-//  Created by Stijn Willems on 23/03/2017.
-//  Copyright © 2017 icapps. All rights reserved.
-//
-
 #import "AppDelegate.h"
-@import ObjectiveDropboxOfficial;
 #import "DropboxLoginable.h"
+#import "LottieDropper-Swift.h"
+
+@import ObjectiveDropboxOfficial;
 
 @interface AppDelegate ()
 
@@ -26,6 +20,7 @@
 	DBOAuthResult *authResult = [DBClientsManager handleRedirectURL:url];
 	if (authResult != nil) {
 		if ([authResult isSuccess]) {
+//			authResult.accessToken
 
 			if ([self.window.rootViewController isKindOfClass:[UINavigationController class]]) {
 				UINavigationController * nav = (UINavigationController *) self.window.rootViewController;
