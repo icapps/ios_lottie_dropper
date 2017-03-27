@@ -1,12 +1,15 @@
 PODS:
   - ObjectiveDropboxOfficial (3.0.4)
+  - Stella (1.1.0)
 
 DEPENDENCIES:
   - ObjectiveDropboxOfficial
+  - Stella (~> 1.1.0)
 
 SPEC CHECKSUMS:
   ObjectiveDropboxOfficial: 3d59f2f0106fac447b2a830e6c922c1b1d7dc4cd
+  Stella: 8f62d6f595ed49ff0f7069ba6a308b3f51d1e083
 
-PODFILE CHECKSUM: 9406aebf21a2759696f47dc9ca156e7af6f6df09
+PODFILE CHECKSUM: 4ef77681e6004e39cecd7ccbda45e8e5416fc61b
 
 COCOAPODS: 1.2.0
