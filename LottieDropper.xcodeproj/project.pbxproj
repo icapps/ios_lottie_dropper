@@ -284,9 +284,9 @@
 				TargetAttributes = {
 					C00416C51E84312C00E92308 = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = SCZPF223NC;
+						DevelopmentTeam = FAJTRUZ6J9;
 						LastSwiftMigration = 0830;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					C00416DE1E84312C00E92308 = {
 						CreatedOnToolsVersion = 8.3;
@@ -607,12 +607,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = SCZPF223NC;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = FAJTRUZ6J9;
 				INFOPLIST_FILE = LottieDropper/ApplicationFlow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = be.icapps.lottieDropper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "bb61db61-d107-4ba0-bb12-a9c68bd0cdf3";
+				PROVISIONING_PROFILE_SPECIFIER = "Distribution In House";
 				SWIFT_OBJC_BRIDGING_HEADER = "LottieDropper/Bridge/LottieDropper-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -625,12 +628,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = SCZPF223NC;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = FAJTRUZ6J9;
 				INFOPLIST_FILE = LottieDropper/ApplicationFlow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = be.icapps.lottieDropper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "bb61db61-d107-4ba0-bb12-a9c68bd0cdf3";
+				PROVISIONING_PROFILE_SPECIFIER = "Distribution In House";
 				SWIFT_OBJC_BRIDGING_HEADER = "LottieDropper/Bridge/LottieDropper-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};

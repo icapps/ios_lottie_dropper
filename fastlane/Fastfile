@@ -1,0 +1,43 @@
+fastlane_version "2.23.0"
+
+default_platform :ios
+
+before_each do |lane, options|
+  xcode_select("/Applications/Xcode 8.2.1.app") if is_ci?
+end
+
+platform :ios do
+
+  desc "Submit a new Beta Build to Apple TestFlight"
+  desc "This will also make sure the profile is up to date"
+  lane :beta do
+    gym(
+      workspace:            'LottieDropper.xcworkspace',
+      scheme:               'LottieDropper',
+      configuration:        'Release',
+      clean:                true,
+      output_name:          "./builds/LottieDropperBeta.ipa",
+      output_directory:     './builds',
+    )
+    hockey(
+      ipa: './builds/._builds_LottieDropperBeta.ipa',
+      release_type: '0'
+    ) if is_ci?
+  end
+  # You can define as many lanes as you want
+
+  after_all do |lane|
+    # This block is called, only if the executed lane was successful
+
+    # slack(
+    #   message: "Successfully deployed new App Update."
+    # )
+  end
+
+  error do |lane, exception|
+    # slack(
+    #   message: exception.message,
+    #   success: false
+    # )
+  end
+end

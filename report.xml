@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="fastlane.lanes">
+    
+    
+    
+      
+      <testcase classname="fastlane.lanes" name="0: Verifying required fastlane version" time="0.003722">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="1: is_ci" time="0.003015">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="2: reset_git_repo" time="0.074381">
+        
+      </testcase>
+    
+  </testsuite>
+</testsuites>
