@@ -20,7 +20,8 @@
 	DBOAuthResult *authResult = [DBClientsManager handleRedirectURL:url];
 	if (authResult != nil) {
 		if ([authResult isSuccess]) {
-//			authResult.accessToken
+
+			LottieDropperKeyChainBridge.shared.dropBoxAccessToken = authResult.accessToken;
 
 			if ([self.window.rootViewController isKindOfClass:[UINavigationController class]]) {
 				UINavigationController * nav = (UINavigationController *) self.window.rootViewController;

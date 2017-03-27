@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Dropbox Access View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DropboxAccessViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="DropboxAccessViewController" customModule="LottieDropper" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -74,19 +74,16 @@
             </objects>
             <point key="canvasLocation" x="1740" y="38"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Lottie Flow Controller View Controller-->
         <scene sceneID="VAl-z8-pTt">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kI1-Ox-ARy" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kI1-Ox-ARy" customClass="LottieFlowControllerViewController" customModule="LottieDropper" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="sLO-My-faX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="1Pi-5d-9ZR"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dfc-iK-4GF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
