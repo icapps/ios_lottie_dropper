@@ -27,8 +27,7 @@ class LottieDropperKeyChainBridge: NSObject {
 
 		set {
 			Keychain[.dropBoxAccessToken] = newValue?.accessToken
-			Keychain[.dropBoxAccessTokenUID] = newValue?.uid
-			
+			Keychain[.dropBoxAccessTokenUID] = newValue?.uid			
 		}
 	}
 

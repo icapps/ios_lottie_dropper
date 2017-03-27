@@ -10,4 +10,6 @@
 
 @interface LottieFlowControllerViewController : UINavigationController
 
+- (instancetype)initWithCoder:(NSCoder *)aDecoder;
+
 @end

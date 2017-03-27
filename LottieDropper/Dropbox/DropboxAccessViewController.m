@@ -1,4 +1,5 @@
 #import "DropboxAccessViewController.h"
+#import "LottieDropper-Swift.h"
 
 @import ObjectiveDropboxOfficial;
 
@@ -31,6 +32,12 @@
 
 - (void)failWithError:(NSError *)error {
 	NSLog(@"%@", error);
+}
+
+#pragma mark - Exit application to allow acces again
+
+- (IBAction)exitToDropboxAccesWithLogout:(UIStoryboardSegue *)segue {
+	LottieDropperKeyChainBridge.shared.dropBoxAccessToken = nil;
 }
 
 @end

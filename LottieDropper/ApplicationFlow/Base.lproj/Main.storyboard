@@ -9,75 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Dropbox Access View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController storyboardIdentifier="DropboxAccessViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="DropboxAccessViewController" customModule="LottieDropper" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t7R-f2-eTz">
-                                <rect key="frame" x="111" y="318" width="153" height="30"/>
-                                <state key="normal" title="Grant Dropbox access"/>
-                                <connections>
-                                    <action selector="grantDroboxAccess:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QTf-rY-Dky"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="t7R-f2-eTz" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="4WP-yK-SwG"/>
-                            <constraint firstItem="t7R-f2-eTz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uwL-bz-2pR"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="sP7-gr-JM4"/>
-                    <connections>
-                        <segue destination="EYn-Ap-XIK" kind="show" identifier="dropbox success" id="DDC-6n-gy7"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="959" y="37"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="tOw-LD-Z1l">
-            <objects>
-                <viewController id="EYn-Ap-XIK" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Mw5-dG-CYC"/>
-                        <viewControllerLayoutGuide type="bottom" id="jqL-xp-qfT"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="lYx-nP-WSV">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can access dropbox now" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bcX-ef-hZS">
-                                <rect key="frame" x="76.5" y="323" width="222.5" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="bcX-ef-hZS" firstAttribute="centerY" secondItem="lYx-nP-WSV" secondAttribute="centerY" id="QG6-rC-yqb"/>
-                            <constraint firstItem="bcX-ef-hZS" firstAttribute="centerX" secondItem="lYx-nP-WSV" secondAttribute="centerX" id="ckG-pJ-vNO"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aq8-Vd-PzV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1740" y="38"/>
-        </scene>
         <!--Lottie Flow Controller View Controller-->
         <scene sceneID="VAl-z8-pTt">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kI1-Ox-ARy" customClass="LottieFlowControllerViewController" customModule="LottieDropper" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kI1-Ox-ARy" customClass="LottieFlowControllerViewController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="sLO-My-faX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

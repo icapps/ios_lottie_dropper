@@ -7,6 +7,9 @@
 //
 
 #import "LottieFlowControllerViewController.h"
+#import "LottieDropper-Swift.h"
+#import "DropboxAccessViewController.h"
+#import "DropBoxBrowserViewController.h"
 
 @interface LottieFlowControllerViewController ()
 
@@ -14,24 +17,33 @@
 
 @implementation LottieFlowControllerViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+	self = [super initWithCoder:aDecoder];
+	if (self) {
+		[self setupFlow];
+	}
+
+	return  self;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)awakeFromNib {
+	[super awakeFromNib];
+
+	[self setupFlow];
 }
 
-/*
-#pragma mark - Navigation
+- (void) setupFlow {
+	UIStoryboard * dropboxStoryboard = [UIStoryboard storyboardWithName:@"Dropbox" bundle:[NSBundle mainBundle]];
+	DropboxAccessViewController * accessViewController = [dropboxStoryboard instantiateViewControllerWithIdentifier:NSStringFromClass([DropboxAccessViewController class])];
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+	DBAccessToken * token = LottieDropperKeyChainBridge.shared.dropBoxAccessToken;
+	if (token == nil) {
+		self.viewControllers = @[accessViewController];
+	} else {
+		DropBoxBrowserViewController * dropboxBrowserViewController = [dropboxStoryboard instantiateViewControllerWithIdentifier:NSStringFromClass([DropBoxBrowserViewController class])];
+		self.viewControllers = @[accessViewController, dropboxBrowserViewController];
+	}
+
 }
-*/
 
 @end
