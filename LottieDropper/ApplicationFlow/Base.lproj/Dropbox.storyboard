@@ -91,6 +91,7 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="label" destination="EM4-Zm-Bkw" id="hq6-1T-glS"/>
+                                            <segue destination="P0h-fJ-LGS" kind="show" id="eDG-RR-HjI"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -117,6 +118,14 @@
                 <exit id="QjI-sy-rkt" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1740" y="37.331334332833585"/>
+        </scene>
+        <!--LottieAnimator-->
+        <scene sceneID="ETL-0v-nro">
+            <objects>
+                <viewControllerPlaceholder storyboardName="LottieAnimator" id="P0h-fJ-LGS" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jWU-QW-rlU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2474" y="37"/>
         </scene>
     </scenes>
 </document>
