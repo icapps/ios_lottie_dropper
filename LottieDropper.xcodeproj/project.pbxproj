@@ -25,6 +25,7 @@
 		C0F3EFB31E8945C2004B007F /* DropboxDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F3EFB21E8945C2004B007F /* DropboxDetailViewModel.m */; };
 		C0F3EFB71E894D4D004B007F /* LottieAnimator.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0F3EFB51E894D4D004B007F /* LottieAnimator.storyboard */; };
 		C0F3EFBA1E894D70004B007F /* LottieAnimatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F3EFB91E894D70004B007F /* LottieAnimatorViewController.m */; };
+		C0F3EFBD1E894DBB004B007F /* LottieAnimatorDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F3EFBC1E894DBB004B007F /* LottieAnimatorDetailViewModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,8 @@
 		C0F3EFB61E894D4D004B007F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LottieDropper/ApplicationFlow/Base.lproj/LottieAnimator.storyboard; sourceTree = SOURCE_ROOT; };
 		C0F3EFB81E894D70004B007F /* LottieAnimatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LottieAnimatorViewController.h; sourceTree = "<group>"; };
 		C0F3EFB91E894D70004B007F /* LottieAnimatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LottieAnimatorViewController.m; sourceTree = "<group>"; };
+		C0F3EFBB1E894DBB004B007F /* LottieAnimatorDetailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LottieAnimatorDetailViewModel.h; sourceTree = "<group>"; };
+		C0F3EFBC1E894DBB004B007F /* LottieAnimatorDetailViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LottieAnimatorDetailViewModel.m; sourceTree = "<group>"; };
 		C747455DF089F6B8CEE6350A /* Pods-LottieDropper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LottieDropper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LottieDropper/Pods-LottieDropper.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -213,6 +216,8 @@
 			children = (
 				C0F3EFB81E894D70004B007F /* LottieAnimatorViewController.h */,
 				C0F3EFB91E894D70004B007F /* LottieAnimatorViewController.m */,
+				C0F3EFBB1E894DBB004B007F /* LottieAnimatorDetailViewModel.h */,
+				C0F3EFBC1E894DBB004B007F /* LottieAnimatorDetailViewModel.m */,
 				C0F3EFB51E894D4D004B007F /* LottieAnimator.storyboard */,
 			);
 			name = LottieAnimator;
@@ -425,6 +430,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0F3EFA41E89088D004B007F /* LottieFlowControllerViewController.m in Sources */,
+				C0F3EFBD1E894DBB004B007F /* LottieAnimatorDetailViewModel.m in Sources */,
 				C00416D11E84312C00E92308 /* DropboxAccessViewController.m in Sources */,
 				C0F3EFA71E890A5C004B007F /* DropBoxBrowserViewController.m in Sources */,
 				C0F3EFAD1E8922FE004B007F /* DropboxBrowserViewModel.m in Sources */,
