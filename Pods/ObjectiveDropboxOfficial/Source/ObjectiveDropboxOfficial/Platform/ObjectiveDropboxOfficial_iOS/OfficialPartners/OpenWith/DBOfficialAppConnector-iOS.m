@@ -20,30 +20,29 @@ static NSString *kDBOpenURLAppDropboxEMM = @"DropboxEMM";
 ///
 @implementation DBOfficialAppConnector {
   NSString *_appKey;
+  BOOL (^_canOpenURLWrapper)(NSURL * _Nonnull);
+  void (^_openURLWrapper)(NSURL * _Nonnull);
 }
 
-- (instancetype)initWithAppKey:(NSString *)appKey {
+- (instancetype)initWithAppKey:(NSString *)appKey
+             canOpenURLWrapper:(BOOL (^)(NSURL *))canOpenURLWrapper
+                openURLWrapper:(void (^)(NSURL *))openURLWrapper {
   if (self = [super init]) {
     _appKey = appKey;
+    _canOpenURLWrapper = canOpenURLWrapper;
+    _openURLWrapper = openURLWrapper;
   }
   return self;
 }
 
-- (void)returnToDropboxApp:(DBOpenWithInfo *)openWithInfo
-            changesPending:(BOOL)changesPending
-            openURLWrapper:(void (^_Nonnull)(NSURL * _Nonnull))openURLWrapper {
-  [self returnToDropboxApp:openWithInfo
-            changesPending:changesPending
-                 errorName:nil
-                    extras:nil
-            openURLWrapper:openURLWrapper];
+- (void)returnToDropboxApp:(DBOpenWithInfo *)openWithInfo changesPending:(BOOL)changesPending {
+  [self returnToDropboxApp:openWithInfo changesPending:changesPending errorName:nil extras:nil];
 }
 
 - (void)returnToDropboxApp:(DBOpenWithInfo *)openWithInfo
             changesPending:(BOOL)changesPending
                  errorName:(NSString *)errorName
-                    extras:(NSDictionary *)extras
-            openURLWrapper:(void (^_Nonnull)(NSURL * _Nonnull))openURLWrapper {
+                    extras:(NSDictionary *)extras {
   NSMutableDictionary *query = [self db_dictForOfficialDropboxCallAtPath:openWithInfo.path
                                                             lastRevision:(NSString *)openWithInfo.rev
                                                                   userId:(NSString *)openWithInfo.userId
@@ -52,10 +51,7 @@ static NSString *kDBOpenURLAppDropboxEMM = @"DropboxEMM";
                                                                errorName:(NSString *)errorName
                                                                   extras:(NSDictionary *)extras];
   query[@"origin"] = @"dropboxInitiated";
-  [self db_handleUrlOpenWithURL:@"viewPath"
-                         params:query
-                     dropboxApp:openWithInfo.sourceApp
-                 openURLWrapper:openURLWrapper];
+  [self db_handleUrlOpenWithURL:@"viewPath" params:query dropboxApp:openWithInfo.sourceApp];
 }
 
 + (DBOpenWithInfo *)retriveOfficialDropboxAppOpenWithInfo {
@@ -100,6 +96,10 @@ static NSString *kDBOpenURLAppDropboxEMM = @"DropboxEMM";
   return nil;
 }
 
+- (BOOL)isRequiredDropboxAppInstalled {
+  return [self db_canOpenScheme:kDropboxScheme] || [self db_canOpenScheme:kDropboxEMMScheme];
+}
+
 + (NSDateFormatter *)dateFormatter {
   NSMutableDictionary *dictionary = [[NSThread currentThread] threadDictionary];
   static NSString *dateFormatterKey = @"DBMetadataDateFormatter";
@@ -114,11 +114,6 @@ static NSString *kDBOpenURLAppDropboxEMM = @"DropboxEMM";
     [dictionary setObject:dateFormatter forKey:dateFormatterKey];
   }
   return dateFormatter;
-}
-
-+ (BOOL)isRequiredDropboxAppInstalled {
-  return [DBOfficialAppConnector db_canOpenScheme:kDropboxScheme] ||
-         [DBOfficialAppConnector db_canOpenScheme:kDropboxEMMScheme];
 }
 
 - (NSMutableDictionary *)db_dictForOfficialDropboxCallAtPath:(NSString *)path
@@ -152,39 +147,36 @@ static NSString *kDBOpenURLAppDropboxEMM = @"DropboxEMM";
 /// Returns the custom url scheme to open the Dropbox app with. If the app isn't installed we default to trying the
 /// Dropbox app first then the Dropbox EMM app.
 ///
-+ (nullable NSString *)db_schemeToOpenDropboxApp:(nullable NSString *)app {
-  if ([app isEqualToString:kDBOpenURLAppDropbox] && [DBOfficialAppConnector db_canOpenScheme:kDropboxScheme]) {
+- (NSString *)db_schemeToOpenDropboxApp:(NSString *)app {
+  if ([app isEqualToString:kDBOpenURLAppDropbox] && [self db_canOpenScheme:kDropboxScheme]) {
     return kDropboxScheme;
   }
 
-  if ([app isEqualToString:kDBOpenURLAppDropboxEMM] && [DBOfficialAppConnector db_canOpenScheme:kDropboxEMMScheme]) {
+  if ([app isEqualToString:kDBOpenURLAppDropboxEMM] && [self db_canOpenScheme:kDropboxEMMScheme]) {
     return kDropboxEMMScheme;
   }
 
-  if ([DBOfficialAppConnector db_canOpenScheme:kDropboxScheme]) {
+  if ([self db_canOpenScheme:kDropboxScheme]) {
     return kDropboxScheme;
   }
 
-  if ([DBOfficialAppConnector db_canOpenScheme:kDropboxEMMScheme]) {
+  if ([self db_canOpenScheme:kDropboxEMMScheme]) {
     return kDropboxEMMScheme;
   }
 
   return nil;
 }
 
-+ (BOOL)db_canOpenScheme:(NSString *)scheme {
-  NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://", scheme]];
-  return [[UIApplication sharedApplication] canOpenURL:URL];
+- (BOOL)db_canOpenScheme:(NSString *)scheme {
+  NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://", scheme]];
+  return _canOpenURLWrapper(url);
 }
 
 ///
 /// Opens the url using the Dropbox app. If app is nil, this defaults to the consumer Dropbox app
 ///
-- (void)db_handleUrlOpenWithURL:(NSString *)subPath
-                         params:(NSDictionary *)params
-                     dropboxApp:(NSString *)app
-                 openURLWrapper:(void (^_Nonnull)(NSURL * _Nonnull))openURLWrapper {
-  NSString *scheme = [DBOfficialAppConnector db_schemeToOpenDropboxApp:app];
+- (void)db_handleUrlOpenWithURL:(NSString *)subPath params:(NSDictionary *)params dropboxApp:(NSString *)app {
+  NSString *scheme = [self db_schemeToOpenDropboxApp:app];
   if (!scheme) {
     return;
   }
@@ -205,7 +197,7 @@ static NSString *kDBOpenURLAppDropboxEMM = @"DropboxEMM";
 
   dispatch_async(dispatch_get_main_queue(), ^{
     NSLog(@"URL open: %@", [components URL]);
-    openURLWrapper([components URL]);
+    self->_openURLWrapper([components URL]);
   });
 }
 

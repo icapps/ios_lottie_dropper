@@ -10,7 +10,9 @@ target 'LottieDropper' do
 
   target 'LottieDropperTests' do
     inherit! :search_paths
-    # Pods for testing
+    pod 'Quick'
+    pod 'Nimble', '~> 5.0'
+    pod 'OCMock', '~> 3.4'
   end
 
 end

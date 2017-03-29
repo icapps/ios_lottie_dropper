@@ -19,7 +19,7 @@ static DBOAuthManager *sharedOAuthManager;
 @property (nonatomic, copy) NSURL * _Nullable redirectURL;
 @property (nonatomic, copy) NSURL * _Nullable cancelURL;
 @property (nonatomic, copy) NSString * _Nullable host;
-@property (nonatomic, copy) NSMutableArray<NSURL *> * _Nullable urls;
+@property (nonatomic) NSMutableArray<NSURL *> * _Nullable urls;
 
 @end
 
@@ -78,7 +78,7 @@ static DBOAuthManager *sharedOAuthManager;
 
 - (void)authorizeFromSharedApplication:(id<DBSharedApplication>)sharedApplication browserAuth:(BOOL)browserAuth {
   void (^cancelHandler)() = ^{
-    [sharedApplication presentExternalApp:_cancelURL];
+    [sharedApplication presentExternalApp:self->_cancelURL];
   };
 
   if ([[DBSDKReachability reachabilityForInternetConnection] currentReachabilityStatus] == DBNotReachable) {
@@ -112,14 +112,14 @@ static DBOAuthManager *sharedOAuthManager;
     return;
   }
 
-  NSURL *url = [self authURL];
+  NSURL *authUrl = [self authURL];
 
   if ([self checkAndPresentPlatformSpecificAuth:sharedApplication]) {
     return;
   }
 
   if (browserAuth) {
-    [sharedApplication presentBrowserAuth:url];
+    [sharedApplication presentBrowserAuth:authUrl];
   } else {
     BOOL (^tryInterceptHandler)
     (NSURL *, BOOL) = ^BOOL(NSURL *url, BOOL openExternalBrowser) {
@@ -134,7 +134,7 @@ static DBOAuthManager *sharedOAuthManager;
       }
     };
 
-    [sharedApplication presentWebViewAuth:url tryInterceptHandler:tryInterceptHandler cancelHandler:cancelHandler];
+    [sharedApplication presentWebViewAuth:authUrl tryInterceptHandler:tryInterceptHandler cancelHandler:cancelHandler];
   }
 }
 
@@ -160,13 +160,14 @@ static DBOAuthManager *sharedOAuthManager;
   components.host = _host;
   components.path = @"/oauth2/authorize";
 
+  NSString *localeIdentifier = [[NSBundle mainBundle] preferredLocalizations].firstObject ?: @"en";
+
   components.queryItems = @[
     [NSURLQueryItem queryItemWithName:@"response_type" value:@"token"],
     [NSURLQueryItem queryItemWithName:@"client_id" value:_appKey],
     [NSURLQueryItem queryItemWithName:@"redirect_uri" value:[_redirectURL absoluteString]],
     [NSURLQueryItem queryItemWithName:@"disable_signup" value:self.disableSignup ? @"true" : @"false"],
-    [NSURLQueryItem queryItemWithName:@"locale"
-                                value:[self.locale localeIdentifier] ?: [[NSLocale currentLocale] localeIdentifier]],
+    [NSURLQueryItem queryItemWithName:@"locale" value:[self.locale localeIdentifier] ?: localeIdentifier],
   ];
   return components.URL;
 }
@@ -281,7 +282,7 @@ static NSString *kDBLinkNonce = @"dropbox.sync.nonce";
 @property (nonatomic, copy) NSString * _Nullable appKey;
 @property (nonatomic, copy) NSURL * _Nullable redirectURL;
 @property (nonatomic, copy) NSString * _Nullable host;
-@property (nonatomic, copy) NSMutableArray<NSURL *> * _Nullable urls;
+@property (nonatomic) NSMutableArray<NSURL *> * _Nullable urls;
 
 /// The redirect url from the mobile "direct auth" flow, wherein
 /// authorization is received from an official Dropbox mobile app,

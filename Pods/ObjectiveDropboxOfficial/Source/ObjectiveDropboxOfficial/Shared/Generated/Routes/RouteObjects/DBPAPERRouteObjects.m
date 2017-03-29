@@ -21,10 +21,10 @@
 #import "DBPAPERPaperApiCursorError.h"
 #import "DBPAPERPaperDocExportResult.h"
 #import "DBPAPERRouteObjects.h"
-#import "DBPAPERRoutes.h"
 #import "DBPAPERSharingPolicy.h"
 #import "DBPAPERSharingPublicPolicyType.h"
 #import "DBPAPERSharingTeamPolicyType.h"
+#import "DBPAPERUserAuthRoutes.h"
 #import "DBPAPERUserInfoWithPermissionLevel.h"
 #import "DBRequestErrors.h"
 #import "DBSHARINGInviteeInfo.h"
@@ -244,8 +244,8 @@ static DBRoute *DBPAPERDocsUsersRemove;
         arraySerialBlock:nil
         arrayDeserialBlock:^id(id array) {
           return [DBArraySerializer deserialize:array
-                                      withBlock:^id(id elem) {
-                                        return [DBPAPERAddPaperDocUserMemberResultSerializer deserialize:elem];
+                                      withBlock:^id(id elem0) {
+                                        return [DBPAPERAddPaperDocUserMemberResultSerializer deserialize:elem0];
                                       }];
         }];
   }

@@ -1,18 +1,27 @@
 PODS:
   - lottie-ios (1.5.1)
-  - ObjectiveDropboxOfficial (3.0.4)
+  - Nimble (5.1.1)
+  - ObjectiveDropboxOfficial (3.0.6)
+  - OCMock (3.4)
+  - Quick (1.1.0)
   - Stella (1.1.0)
 
 DEPENDENCIES:
   - lottie-ios (~> 1.5.1)
+  - Nimble (~> 5.0)
   - ObjectiveDropboxOfficial (~> 3.0.4)
+  - OCMock (~> 3.4)
+  - Quick
   - Stella (~> 1.1.0)
 
 SPEC CHECKSUMS:
   lottie-ios: f680a7c4cb7a567ecf258fde0f967913aff111b8
-  ObjectiveDropboxOfficial: 3d59f2f0106fac447b2a830e6c922c1b1d7dc4cd
+  Nimble: 415e3aa3267e7bc2c96b05fa814ddea7bb686a29
+  ObjectiveDropboxOfficial: 5cf2974ece2b4ce2e0fda37a8da2db805cff902a
+  OCMock: 35ae71d6a8fcc1b59434d561d1520b9dd4f15765
+  Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d
   Stella: 8f62d6f595ed49ff0f7069ba6a308b3f51d1e083
 
-PODFILE CHECKSUM: ccf1c29086561cc4f15edadee06af9fc4c000d2e
+PODFILE CHECKSUM: 57601dffbf53b2daa7ab39ede7991d5f8b7def31
 
 COCOAPODS: 1.2.0

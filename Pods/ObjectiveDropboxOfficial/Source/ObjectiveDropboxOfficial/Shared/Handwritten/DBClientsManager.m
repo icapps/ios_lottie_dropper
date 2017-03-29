@@ -159,9 +159,9 @@ static DBTeamClient *authorizedTeamClient;
     if (authorizedClient) {
       [authorizedClient updateAccessToken:accessToken];
     } else {
-      DBUserClient *authorizedClient =
+      DBUserClient *userClient =
           [[DBUserClient alloc] initWithAccessToken:accessToken transportConfig:[DBClientsManager transportConfig]];
-      [DBClientsManager setAuthorizedClient:authorizedClient];
+      [DBClientsManager setAuthorizedClient:userClient];
     }
     [DBClientsManager setTransportConfig:nil];
   }
@@ -180,9 +180,9 @@ static DBTeamClient *authorizedTeamClient;
     if (authorizedTeamClient) {
       [authorizedTeamClient updateAccessToken:accessToken];
     } else {
-      DBTeamClient *authorizedTeamClient =
+      DBTeamClient *teamClient =
           [[DBTeamClient alloc] initWithAccessToken:accessToken transportConfig:[DBClientsManager transportConfig]];
-      [DBClientsManager setAuthorizedTeamClient:authorizedTeamClient];
+      [DBClientsManager setAuthorizedTeamClient:teamClient];
     }
     [DBClientsManager setTransportConfig:nil];
   }
@@ -202,11 +202,11 @@ static DBTeamClient *authorizedTeamClient;
   [DBClientsManager setAuthorizedTeamClient:nil];
 }
 
-+ (void)checkAndPerformV1TokenMigration:(DBTokenMigrationResponseBlock)responseBlock
++ (BOOL)checkAndPerformV1TokenMigration:(DBTokenMigrationResponseBlock)responseBlock
                                   queue:(NSOperationQueue *)queue
                                  appKey:(NSString *)appKey
                               appSecret:(NSString *)appSecret {
-  [DBSDKKeychain checkAndPerformV1TokenMigration:responseBlock queue:queue appKey:appKey appSecret:appSecret];
+  return [DBSDKKeychain checkAndPerformV1TokenMigration:responseBlock queue:queue appKey:appKey appSecret:appSecret];
 }
 
 @end

@@ -4,14 +4,15 @@
 
 #import <Security/Security.h>
 
-#import "DBAUTHRoutes.h"
+#import "DBAUTHAppAuthRoutes.h"
 #import "DBAUTHTokenFromOAuth1Error.h"
 #import "DBAUTHTokenFromOAuth1Result.h"
+#import "DBAUTHUserAuthRoutes.h"
+#import "DBAppClient.h"
 #import "DBClientsManager+Protected.h"
 #import "DBRequestErrors.h"
 #import "DBSDKKeychain.h"
 #import "DBTransportDefaultConfig.h"
-#import "DBUserClient.h"
 
 static NSString *kAccessibilityMigrationOccurredKey = @"KeychainAccessibilityMigration";
 static NSString *kV1TokenMigrationOccurredKeyBase = @"KeychainV1TokenMigration-%@";
@@ -145,7 +146,7 @@ static const char *kV1OSXAccountName = "Dropbox";
   }
 }
 
-+ (void)checkAndPerformV1TokenMigration:(DBTokenMigrationResponseBlock)responseBlock
++ (BOOL)checkAndPerformV1TokenMigration:(DBTokenMigrationResponseBlock)responseBlock
                                   queue:(NSOperationQueue *)queue
                                  appKey:(NSString *)appKey
                               appSecret:(NSString *)appSecret {
@@ -173,7 +174,7 @@ static const char *kV1OSXAccountName = "Dropbox";
     [v1TokensData addObjectsFromArray:v1TokensDataOSXSync];
 #endif
 
-    if ([v1TokensData count] != 0) {
+    if ([v1TokensData count] > 0) {
       [[NSOperationQueue new] addOperationWithBlock:^{
         [[self class] convertV1TokenToV2:v1TokensData
                                   appKey:appKey
@@ -181,12 +182,10 @@ static const char *kV1OSXAccountName = "Dropbox";
                            responseBlock:responseBlock
                                    queue:queueToUse];
       }];
+      return YES;
     }
-  } else {
-    [queueToUse addOperationWithBlock:^{
-      responseBlock(NO, NO, @[]);
-    }];
   }
+  return NO;
 }
 
 #if TARGET_OS_IPHONE
@@ -364,9 +363,7 @@ static const char *kV1OSXAccountName = "Dropbox";
                  appSecret:(NSString *)appSecret
              responseBlock:(DBTokenMigrationResponseBlock)responseBlock
                      queue:(NSOperationQueue *)queue {
-  DBTransportDefaultConfig *transportConfig =
-      [[DBTransportDefaultConfig alloc] initWithAppKey:appKey appSecret:appSecret];
-  DBUserClient *unauthorizedClient = [[DBUserClient alloc] initAsUnauthorizedClientWithTransportConfig:transportConfig];
+  DBAppClient *appAuthClient = [[DBAppClient alloc] initWithAppKey:appKey appSecret:appSecret];
 
   dispatch_group_t tokenConvertGroup = dispatch_group_create();
 
@@ -405,7 +402,7 @@ static const char *kV1OSXAccountName = "Dropbox";
     }
 
     dispatch_group_enter(tokenConvertGroup);
-    [[unauthorizedClient.authRoutes tokenFromOauth1:accessToken oauth1TokenSecret:accessTokenSecret]
+    [[appAuthClient.authRoutes tokenFromOauth1:accessToken oauth1TokenSecret:accessTokenSecret]
         setResponseBlock:^(DBAUTHTokenFromOAuth1Result *result, DBAUTHTokenFromOAuth1Error *routeError,
                            DBRequestError *error) {
 #pragma unused(routeError)

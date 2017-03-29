@@ -157,7 +157,6 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  self.title = @"Link to Dropbox";
   _webView = [[WKWebView alloc] initWithFrame:self.view.bounds];
   _webView.UIDelegate = self;
 
@@ -212,6 +211,9 @@
     createWebViewWithConfiguration:(WKWebViewConfiguration *)configuration
                forNavigationAction:(WKNavigationAction *)navigationAction
                     windowFeatures:(WKWindowFeatures *)windowFeatures {
+#pragma unused(webView)
+#pragma unused(configuration)
+#pragma unused(windowFeatures)
   // For target="_bank" urls, we want to suppress the call, then reopen in new browser
   if (!navigationAction.targetFrame.isMainFrame) {
     _tryInterceptHandler(navigationAction.request.URL, YES);
