@@ -6,10 +6,10 @@
 //  Copyright © 2017 icapps. All rights reserved.
 //
 
-#import <XCTest/XCTest.h>
-#import <OCMock/OCMock.h>
 #import "DropboxBrowserViewModel.h"
 
+@import XCTest;
+@import OCMock;
 @import Quick;
 @import Nimble;
 
@@ -22,7 +22,11 @@
 @implementation DropBoxBrowserViewModelSpec
 
 - (void)spec {
-    
+    describe(@"Client", ^{
+        it(@"should return the correct client", ^{
+            expect(self.viewModel.client).to(beNil());
+        });
+    });
 }
 
 @end
