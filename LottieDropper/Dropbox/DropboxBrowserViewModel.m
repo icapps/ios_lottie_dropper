@@ -55,6 +55,7 @@
         [self fetchDropBoxFiles:done];
     } else {
         NSLog(@"No internet connection available");
+        // TODO: - Log message to user "No internet connection available"
         [self fetchLocalFiles];
     }
 
