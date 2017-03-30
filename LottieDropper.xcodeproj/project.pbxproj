@@ -123,6 +123,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6DE34F161E8BB406009DDBE8 /* Google drive */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Google drive";
+			sourceTree = "<group>";
+		};
 		C00416BD1E84312C00E92308 = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +153,7 @@
 		C00416C81E84312C00E92308 /* LottieDropper */ = {
 			isa = PBXGroup;
 			children = (
+				6DE34F161E8BB406009DDBE8 /* Google drive */,
 				C0F3EF981E88FE1D004B007F /* ApplicationFlow */,
 				C00416C91E84312C00E92308 /* Bridge */,
 				C0F3EF971E88FDEA004B007F /* Dropbox */,
