@@ -77,7 +77,14 @@
             if (error != nil) {
                 NSLog(@"%@", error);
             }
-            
+        /// Error 409: File not found
+        /// Delete local file when file on server not found or changed
+        } else if ((int) error.statusCode == 409) {
+            // TODO: Check on error.statusCode == 409 (casting to Int does not work) 
+            NSFileManager *fileManager = [NSFileManager defaultManager];
+            NSError *error;
+            [fileManager removeItemAtPath:self.fileOnDisk.path error:&error];
+            _fileOnDisk = nil;
         } else {
             _fileOnDisk = nil;
             NSLog(@"%@\n%@\n", routeError, error);
