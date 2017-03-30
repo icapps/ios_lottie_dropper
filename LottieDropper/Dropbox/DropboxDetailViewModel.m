@@ -36,25 +36,39 @@
 	NSFileManager *fileManager = [NSFileManager defaultManager];
 	NSURL *outputDirectory = [fileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask][0];
 	_fileOnDisk = [outputDirectory URLByAppendingPathComponent:self.file.pathLower];
+    
+    if ([fileManager fileExistsAtPath:[_fileOnDisk path]]) {
+        NSData *data = [[NSFileManager defaultManager] contentsAtPath:[_fileOnDisk path]];
+        NSError *error;
+        self.json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+        done();
+    } else {
+        [self downloadFileFromService:done];
+    }
+    
+}
 
-	[[[self.client.filesRoutes downloadUrl:self.file.pathLower overwrite:YES destination:self.fileOnDisk] setResponseBlock:^(DBFILESFileMetadata * _Nullable response, DBFILESDownloadError * _Nullable routeError, DBRequestError * _Nullable error, NSURL * _Nonnull destination) {
-		if (response) {
-			NSData *data = [[NSFileManager defaultManager] contentsAtPath:[destination path]];
-			NSError *error;
-			self.json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
-
-			if (error != nil) {
-				NSLog(@"%@", error);
-			}
-
-		} else {
-			_fileOnDisk = nil;
-			NSLog(@"%@\n%@\n", routeError, error);
-		}
-		done();
-	}] setProgressBlock:^(int64_t bytesDownloaded, int64_t totalBytesDownloaded, int64_t totalBytesExpectedToDownload) {
-		NSLog(@"%lld\n%lld\n%lld\n", bytesDownloaded, totalBytesDownloaded, totalBytesExpectedToDownload);
-	}];
+- (void) downloadFileFromService: (void (^) (void)) done {
+    
+    [[[self.client.filesRoutes downloadUrl:self.file.pathLower overwrite:YES destination:self.fileOnDisk] setResponseBlock:^(DBFILESFileMetadata * _Nullable response, DBFILESDownloadError * _Nullable routeError, DBRequestError * _Nullable error, NSURL * _Nonnull destination) {
+        if (response) {
+            NSData *data = [[NSFileManager defaultManager] contentsAtPath:[destination path]];
+            NSError *error;
+            self.json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+            
+            if (error != nil) {
+                NSLog(@"%@", error);
+            }
+            
+        } else {
+            _fileOnDisk = nil;
+            NSLog(@"%@\n%@\n", routeError, error);
+        }
+        done();
+    }] setProgressBlock:^(int64_t bytesDownloaded, int64_t totalBytesDownloaded, int64_t totalBytesExpectedToDownload) {
+        NSLog(@"%lld\n%lld\n%lld\n", bytesDownloaded, totalBytesDownloaded, totalBytesExpectedToDownload);
+    }];
+    
 }
 
 #pragma mark - Display Info
