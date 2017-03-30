@@ -35,6 +35,8 @@
 
 	NSFileManager *fileManager = [NSFileManager defaultManager];
 	NSURL *outputDirectory = [fileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask][0];
+    
+    // Check for dropbox or local files.
     if (self.file.pathLower != nil) {
         _fileOnDisk = [outputDirectory URLByAppendingPathComponent:self.file.pathLower];
     } else {
@@ -43,11 +45,11 @@
 	
     Connectivity *connectivity = [[Connectivity alloc]init];
     if ([connectivity IsConnectionAvailable]) {
-        // Connection available
+        // Internet connection available
         [self downloadFileFromService:done];
     }
     else {
-        // Connection unavailable
+        // Internet connection unavailable
         NSLog(@"No internet connection available");
         [self checkIfFileExists:fileManager done:done];
     }
@@ -76,10 +78,9 @@
             if (error != nil) {
                 NSLog(@"%@", error);
             }
-        /// Error 409: File not found
-        /// Delete local file when file on server not found or changed
+        // Error 409: File not found
+        // Delete local file when file on server not found or changed
         } else if (error.statusCode.intValue == 409) {
-            // TODO: Check on error.statusCode == 409 (casting to Int does not work) 
             NSFileManager *fileManager = [NSFileManager defaultManager];
             NSError *error;
             [fileManager removeItemAtPath:self.fileOnDisk.path error:&error];
@@ -95,6 +96,8 @@
     
 }
 
+/// When internet connection is available try using pathLower if it exists.
+/// Else use the local file name.
 -(NSString *) downloadURLString {
     Connectivity *connectivity = [[Connectivity alloc] init];
     if ([connectivity IsConnectionAvailable] && self.file.pathLower != nil) {

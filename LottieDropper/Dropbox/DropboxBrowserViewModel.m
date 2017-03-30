@@ -52,6 +52,7 @@
     
     Connectivity *connectivity = [[Connectivity alloc]init];
     if ([connectivity IsConnectionAvailable]) {
+        // Internet connection available
         [self fetchDropBoxFiles:done];
     } else {
         NSLog(@"No internet connection available");
@@ -115,12 +116,12 @@
     NSURL *outputDirectory = [fileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask][0];
     NSError *error;
     NSArray *directoryContent = [fileManager contentsOfDirectoryAtPath:outputDirectory.path error:&error];
+    // Create file for each content in the directoryContent and add it to the entries.
     for (NSString *content in directoryContent) {
         DBFILESMetadata * file = [[DBFILESMetadata alloc]initWithName:content];
         [self.entries addObject:file];
     }
     NSLog(@"Displaying entries: %@", self.entries);
-    
 }
 
 #pragma mark: - File info
