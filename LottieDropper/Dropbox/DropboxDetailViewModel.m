@@ -41,6 +41,7 @@
         NSData *data = [[NSFileManager defaultManager] contentsAtPath:[_fileOnDisk path]];
         NSError *error;
         self.json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+        NSLog(@"Using file from disk %@", [self.file pathLower]);
         done();
     } else {
         [self downloadFileFromService:done];
@@ -55,7 +56,7 @@
             NSData *data = [[NSFileManager defaultManager] contentsAtPath:[destination path]];
             NSError *error;
             self.json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
-            
+            NSLog(@"File downloaded!");
             if (error != nil) {
                 NSLog(@"%@", error);
             }
