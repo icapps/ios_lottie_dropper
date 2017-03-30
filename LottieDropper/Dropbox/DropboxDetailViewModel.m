@@ -37,16 +37,25 @@
 	NSURL *outputDirectory = [fileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask][0];
 	_fileOnDisk = [outputDirectory URLByAppendingPathComponent:self.file.pathLower];
     
-    if ([fileManager fileExistsAtPath:[_fileOnDisk path]]) {
-        NSData *data = [[NSFileManager defaultManager] contentsAtPath:[_fileOnDisk path]];
-        NSError *error;
-        self.json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
-        NSLog(@"Using file from disk %@", [self.file pathLower]);
-        done();
-    } else {
+    if ([[Reachability reachabilityForInternetConnection]currentReachabilityStatus]==NotReachable) {
+        // Connection unavailable
+        NSLog(@"No internet connection available");
+        
+        // Check if file exists
+        if ([fileManager fileExistsAtPath:[_fileOnDisk path]]) {
+            NSData *data = [[NSFileManager defaultManager] contentsAtPath:[_fileOnDisk path]];
+            NSError *error;
+            self.json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+            NSLog(@"Using file from disk %@", [self.file pathLower]);
+            done();
+        } else {
+            NSLog(@"No file in disk at: %@", [self.file pathLower]);
+        }
+    }
+    else {
+        // Connection available
         [self downloadFileFromService:done];
     }
-    
 }
 
 - (void) downloadFileFromService: (void (^) (void)) done {
