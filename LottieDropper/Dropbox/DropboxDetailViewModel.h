@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Reachability.h"
+#import "Connectivity.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

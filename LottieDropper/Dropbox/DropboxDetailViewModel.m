@@ -37,7 +37,12 @@
 	NSURL *outputDirectory = [fileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask][0];
 	_fileOnDisk = [outputDirectory URLByAppendingPathComponent:self.file.pathLower];
     
-    if ([[Reachability reachabilityForInternetConnection]currentReachabilityStatus]==NotReachable) {
+    Connectivity *connectivity = [[Connectivity alloc]init];
+    if ([connectivity IsConnectionAvailable]) {
+        // Connection available
+        [self downloadFileFromService:done];
+    }
+    else {
         // Connection unavailable
         NSLog(@"No internet connection available");
         
@@ -51,10 +56,6 @@
         } else {
             NSLog(@"No file in disk at: %@", [self.file pathLower]);
         }
-    }
-    else {
-        // Connection available
-        [self downloadFileFromService:done];
     }
 }
 
