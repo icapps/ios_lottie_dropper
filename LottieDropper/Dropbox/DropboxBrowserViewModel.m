@@ -10,9 +10,12 @@
 #import "LottieDropper-Swift.h"
 #import "DropboxDetailViewModel.h"
 
+@import Stella;
+
 @interface DropboxBrowserViewModel ()
 
 @property (nonatomic, strong)  NSMutableArray<DBFILESMetadata *> *entries;
+@property (nonatomic, strong) NSMutableArray<NSString *> *localEntries;
 
 @end
 
@@ -46,29 +49,40 @@
 		NSLog(@" No Dropbox user client");
 		return;
 	}
-	[[self.client.filesRoutes listFolder:@""]
-	 setResponseBlock:^(DBFILESListFolderResult *response, DBFILESListFolderError *routeError, DBRequestError *networkError) {
-		 if (response) {
-			 [self.entries addObjectsFromArray:response.entries];
+    
+    Connectivity *connectivity = [[Connectivity alloc]init];
+    if ([connectivity IsConnectionAvailable]) {
+        [self fetchDropBoxFiles:done];
+    } else {
+        NSLog(@"No internet connection available");
+        [self fetchLocalFiles];
+    }
 
-			 // See if there is more to download.
-			 NSString *cursor = response.cursor;
-			 BOOL hasMore = [response.hasMore boolValue];
+}
 
-			 if (hasMore) {
-				 NSLog(@"Folder is large enough where we need to call `listFolderContinue:`");
-
-				 [self listFolderContinueWithClient:self.client cursor:cursor];
-			 } else {
-				 NSLog(@"List folder complete.");
-				 done();
-			 }
-		 } else {
-			 NSLog(@"%@\n%@\n", routeError, networkError);
-			 done();
-		 }
-	 }];
-
+- (void) fetchDropBoxFiles: (void (^)(void)) done {
+    [[self.client.filesRoutes listFolder:@""]
+     setResponseBlock:^(DBFILESListFolderResult *response, DBFILESListFolderError *routeError, DBRequestError *networkError) {
+         if (response) {
+             [self.entries addObjectsFromArray:response.entries];
+             
+             // See if there is more to download.
+             NSString *cursor = response.cursor;
+             BOOL hasMore = [response.hasMore boolValue];
+             
+             if (hasMore) {
+                 NSLog(@"Folder is large enough where we need to call `listFolderContinue:`");
+                 
+                 [self listFolderContinueWithClient:self.client cursor:cursor];
+             } else {
+                 NSLog(@"List folder complete.");
+                 done();
+             }
+         } else {
+             NSLog(@"%@\n%@\n", routeError, networkError);
+             done();
+         }
+     }];
 }
 
 - (void)listFolderContinueWithClient:(DBUserClient *)client cursor:(NSString *)cursor {
@@ -90,6 +104,21 @@
 			 NSLog(@"%@\n%@\n", routeError, networkError);
 		 }
 	 }];
+}
+
+#pragma mark: - Fetch local files
+
+- (void) fetchLocalFiles {
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSURL *outputDirectory = [fileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask][0];
+    NSError *error;
+    NSArray *directoryContent = [fileManager contentsOfDirectoryAtPath:outputDirectory.path error:&error];
+    for (NSString *content in directoryContent) {
+        DBFILESMetadata * file = [[DBFILESMetadata alloc]initWithName:content];
+        [self.entries addObject:file];
+    }
+    NSLog(@"Displaying entries: %@", self.entries);
+    
 }
 
 #pragma mark: - File info

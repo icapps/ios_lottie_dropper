@@ -35,8 +35,12 @@
 
 	NSFileManager *fileManager = [NSFileManager defaultManager];
 	NSURL *outputDirectory = [fileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask][0];
-	_fileOnDisk = [outputDirectory URLByAppendingPathComponent:self.file.pathLower];
-    
+    if (self.file.pathLower != nil) {
+        _fileOnDisk = [outputDirectory URLByAppendingPathComponent:self.file.pathLower];
+    } else {
+        _fileOnDisk = [outputDirectory URLByAppendingPathComponent:self.file.name];
+    }
+	
     Connectivity *connectivity = [[Connectivity alloc]init];
     if ([connectivity IsConnectionAvailable]) {
         // Connection available
