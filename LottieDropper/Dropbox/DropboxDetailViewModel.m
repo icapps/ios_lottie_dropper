@@ -67,8 +67,8 @@
 }
 
 - (void) downloadFileFromService: (void (^) (void)) done {
-    
-    [[[self.client.filesRoutes downloadUrl:self.file.pathLower overwrite:YES destination:self.fileOnDisk] setResponseBlock:^(DBFILESFileMetadata * _Nullable response, DBFILESDownloadError * _Nullable routeError, DBRequestError * _Nullable error, NSURL * _Nonnull destination) {
+
+    [[[self.client.filesRoutes downloadUrl:[self downloadURLString] overwrite:YES destination:self.fileOnDisk] setResponseBlock:^(DBFILESFileMetadata * _Nullable response, DBFILESDownloadError * _Nullable routeError, DBRequestError * _Nullable error, NSURL * _Nonnull destination) {
         if (response) {
             NSData *data = [[NSFileManager defaultManager] contentsAtPath:[destination path]];
             NSError *error;
@@ -87,6 +87,18 @@
         NSLog(@"%lld\n%lld\n%lld\n", bytesDownloaded, totalBytesDownloaded, totalBytesExpectedToDownload);
     }];
     
+}
+
+-(NSString *) downloadURLString {
+    Connectivity *connectivity = [[Connectivity alloc] init];
+    if ([connectivity IsConnectionAvailable] && self.file.pathLower != nil) {
+        return self.file.pathLower;
+    } else if (self.file.name != nil) {
+        NSString *URLString = [NSString stringWithFormat:@"/%@", self.file.name];
+        return URLString;
+    } else {
+        return @"";
+    }
 }
 
 #pragma mark - Display Info
