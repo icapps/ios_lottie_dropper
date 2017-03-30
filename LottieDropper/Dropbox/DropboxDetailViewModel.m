@@ -45,17 +45,20 @@
     else {
         // Connection unavailable
         NSLog(@"No internet connection available");
-        
-        // Check if file exists
-        if ([fileManager fileExistsAtPath:[_fileOnDisk path]]) {
-            NSData *data = [[NSFileManager defaultManager] contentsAtPath:[_fileOnDisk path]];
-            NSError *error;
-            self.json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
-            NSLog(@"Using file from disk %@", [self.file pathLower]);
-            done();
-        } else {
-            NSLog(@"No file in disk at: %@", [self.file pathLower]);
-        }
+        [self checkIfFileExists:fileManager done:done];
+    }
+}
+
+/// Check if file exists at self.fileOnDisk
+- (void) checkIfFileExists: (NSFileManager *) fileManager done:(void (^) (void)) done {
+    if ([fileManager fileExistsAtPath:[_fileOnDisk path]]) {
+        NSData *data = [[NSFileManager defaultManager] contentsAtPath:[_fileOnDisk path]];
+        NSError *error;
+        self.json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+        NSLog(@"Using file from disk %@", [self.file pathLower]);
+        done();
+    } else {
+        NSLog(@"No file in disk at: %@", [self.file pathLower]);
     }
 }
 
