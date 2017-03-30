@@ -7,6 +7,7 @@ target 'LottieDropper' do
    pod 'ObjectiveDropboxOfficial', '~>3.0.4'
    pod 'Stella', '~> 1.1.0'
    pod 'lottie-ios', '~> 1.5.1'
+   pod 'Reachability', '~> 3.2'
 
   target 'LottieDropperTests' do
     inherit! :search_paths

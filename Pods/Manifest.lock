@@ -1,18 +1,21 @@
 PODS:
   - lottie-ios (1.5.1)
   - ObjectiveDropboxOfficial (3.0.4)
+  - Reachability (3.2)
   - Stella (1.1.0)
 
 DEPENDENCIES:
   - lottie-ios (~> 1.5.1)
   - ObjectiveDropboxOfficial (~> 3.0.4)
+  - Reachability (~> 3.2)
   - Stella (~> 1.1.0)
 
 SPEC CHECKSUMS:
   lottie-ios: f680a7c4cb7a567ecf258fde0f967913aff111b8
   ObjectiveDropboxOfficial: 3d59f2f0106fac447b2a830e6c922c1b1d7dc4cd
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   Stella: 8f62d6f595ed49ff0f7069ba6a308b3f51d1e083
 
-PODFILE CHECKSUM: ccf1c29086561cc4f15edadee06af9fc4c000d2e
+PODFILE CHECKSUM: e4ad8aa43090c5d4220a16a42d87c229efb0da26
 
 COCOAPODS: 1.2.0
