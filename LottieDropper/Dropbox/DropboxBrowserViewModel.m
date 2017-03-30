@@ -64,6 +64,7 @@
 - (void) fetchDropBoxFiles: (void (^)(void)) done {
     [[self.client.filesRoutes listFolder:@""]
      setResponseBlock:^(DBFILESListFolderResult *response, DBFILESListFolderError *routeError, DBRequestError *networkError) {
+       
          if (response) {
              [self.entries addObjectsFromArray:response.entries];
              

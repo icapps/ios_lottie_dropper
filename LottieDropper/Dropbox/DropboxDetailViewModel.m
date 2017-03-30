@@ -67,7 +67,6 @@
 }
 
 - (void) downloadFileFromService: (void (^) (void)) done {
-
     [[[self.client.filesRoutes downloadUrl:[self downloadURLString] overwrite:YES destination:self.fileOnDisk] setResponseBlock:^(DBFILESFileMetadata * _Nullable response, DBFILESDownloadError * _Nullable routeError, DBRequestError * _Nullable error, NSURL * _Nonnull destination) {
         if (response) {
             NSData *data = [[NSFileManager defaultManager] contentsAtPath:[destination path]];
@@ -79,7 +78,7 @@
             }
         /// Error 409: File not found
         /// Delete local file when file on server not found or changed
-        } else if ((int) error.statusCode == 409) {
+        } else if (error.statusCode.intValue == 409) {
             // TODO: Check on error.statusCode == 409 (casting to Int does not work) 
             NSFileManager *fileManager = [NSFileManager defaultManager];
             NSError *error;
