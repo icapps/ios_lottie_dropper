@@ -13,6 +13,9 @@
 @interface DropboxDetailViewModel ()
 
 @property (nonatomic, strong) DBUserClient * client;
+@property (nonatomic, strong, nullable) DBFILESMetadata * file;
+@property (nonatomic, strong) NSString *localFile;
+@property (nonatomic, readonly) NSURL * _Nullable fileOnDisk;
 
 @end
 
@@ -20,10 +23,20 @@
 @synthesize fileOnDisk = _fileOnDisk;
 @synthesize json = _json;
 
+-(instancetype)initWithLocalFile: (NSString *) localFile client: (DBUserClient *)client {
+	self = [super init];
+	if (self) {
+		self.localFile = localFile;
+		self.client = client;
+	}
+	return  self;
+}
+
 -(instancetype)initWithFile: (DBFILESMetadata *) file client: (DBUserClient*) client {
 	self = [super init];
 	if (self) {
 		self.file = file;
+		self.localFile = file.name;
 		self.client = client;
 	}
 	return  self;
@@ -113,7 +126,7 @@
 #pragma mark - Display Info
 
 -(NSString *)fileName {
-	return self.file.name;
+	return self.localFile;
 }
 
 @end

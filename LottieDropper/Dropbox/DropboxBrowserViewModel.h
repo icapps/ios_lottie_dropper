@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark: - File info
 
-- (NSArray <DropboxDetailViewModel*> *) fileDetails;
+@property (nonatomic, strong) NSMutableArray <DropboxDetailViewModel*> * fileDetails;
 
 - (DropboxDetailViewModel* _Nullable) fileDetailAtIndexPath:(NSIndexPath*) indexPath;
 
