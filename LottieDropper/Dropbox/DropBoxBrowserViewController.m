@@ -47,6 +47,12 @@
 
 }
 
+#pragma mark: Reload
+
+-(IBAction)reloadFileList:(id)sender {
+    
+}
+
 #pragma mark: - UICollectionViewDataSource
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
