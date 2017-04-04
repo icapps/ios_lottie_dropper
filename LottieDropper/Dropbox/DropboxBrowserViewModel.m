@@ -13,14 +13,6 @@
 @import Stella;
 
 @interface DropboxBrowserViewModel ()
-
-	// Dropbox file cache
-@property (nonatomic, strong)  NSMutableArray<DBFILESMetadata *> *dropboxFileCache;
-
-@property (readonly) NSArray <NSString*> * detailFileNames;
-
-@property (nonatomic, strong) NSMutableArray<NSString *> *localEntries;
-
 @property (readonly) NSURL *outputDirectory;
 @property (readonly) NSFileManager *fileManager;
 
@@ -62,17 +54,6 @@
 	return  _dropboxFileCache;
 }
 
--(NSArray<NSString *> *)detailFileNames {
-	NSArray <DropboxDetailViewModel*> * dropboxDetails = [self fileDetails];
-
-	NSMutableArray <NSString*> * dropboxFileList = [NSMutableArray arrayWithCapacity:[dropboxDetails count]] ;
-	[self.dropboxFileCache enumerateObjectsUsingBlock:^(DBFILESMetadata * file, NSUInteger idx, BOOL *stop) {
-		[dropboxFileList addObject: [[DropboxDetailViewModel alloc] initWithFile:file client:self.client].fileName.lowercaseString];
-	}];
-	return  dropboxFileList;
-}
-
-
 #pragma mark: - Access Dropbox for Client
 
 - (void)initializeDropboxClient: (void (^)(void)) done  {
@@ -82,11 +63,9 @@
 		return;
 	}
 
-	[self addDetailsFromLocalFiles];
-
+	[self setupFileDetailsFromLocalFilenames];
 	[self sort];
 	done();
-
 	[self fetchDropBoxFiles:^{
 		[self sort];
 		done();
@@ -124,19 +103,19 @@
 					 [self listFolderContinueWithClient:self.client cursor:cursor];
 				 } else {
 					 NSLog(@"List folder complete.");
-					 [self addDetailsFromDropboxFileCache];
+					 [self mergeDropboxFileListWithFileDetails];
 
-					// save empty files if needed.
-					 NSArray <NSString *>* newFiles = [self getNewFiles];
-
-					 if (newFiles.count != 0) {
-						 for (NSString * filePath in newFiles) {
-							 NSURL * url = [self.outputDirectory URLByAppendingPathComponent:filePath];
-							 [self.fileManager createFileAtPath:url.path contents:nil attributes:nil];
-						 }
-
-						 [self addDetailsFromLocalFiles];
-					 }
+//					// save empty files if needed.
+//					 NSArray <NSString *>* newFiles = [self getNewFiles];
+//
+//					 if (newFiles.count != 0) {
+//						 for (NSString * filePath in newFiles) {
+//							 NSURL * url = [self.outputDirectory URLByAppendingPathComponent:filePath];
+//							 [self.fileManager createFileAtPath:url.path contents:nil attributes:nil];
+//						 }
+//
+//						 [self setupFileDetailsFromLocalFilenames];
+//					 }
 					 done();
 				 }
 			 } else {
@@ -148,21 +127,6 @@
 		NSLog(@"No internet connection available");
 	}
 
-}
-
-- (NSArray <NSString *>*)getNewFiles {
-	NSArray <NSString*> * localFileList = [self fetchLocalFiles];
-
-	NSMutableArray <NSString*>* newFiles = [@[] mutableCopy];
-	NSArray <NSString*> *dropboxFileNames = self.detailFileNames;
-
-	for (NSString *dropboxFileName in dropboxFileNames) {
-		if (![localFileList containsObject:dropboxFileName]) {
-			[newFiles addObject:dropboxFileName];
-		}
-	}
-
-	return newFiles;
 }
 
 - (void)listFolderContinueWithClient:(DBUserClient *)client cursor:(NSString *)cursor {
@@ -188,9 +152,11 @@
 
 #pragma mark: - Fetch local files
 
-- (NSArray <NSString *> *) fetchLocalFiles {
+/// Makes list of file names from the outputDirectory
+- (NSArray <NSString *> *) fetchFilenamesFromOutputDirectory {
 
     NSError *error;
+    // TODO: filter out hidden filenames
     NSArray <NSString*> * list = [self.fileManager contentsOfDirectoryAtPath:self.outputDirectory.path error:&error];
 	if (error == nil) {
 		return list;
@@ -200,12 +166,14 @@
 	}
 }
 
--(void) addDetailsFromLocalFiles {
-	NSArray <NSString*> * localFilelist = [self fetchLocalFiles];
+/// 1. Load local file names
+/// 2. Use file names to fill the fileDetails list
+-(void) setupFileDetailsFromLocalFilenames {
+	NSArray <NSString*> * localFilelist = [self fetchFilenamesFromOutputDirectory];
 
-	for (NSString * file in localFilelist) {
-		if (![self.detailFileNames containsObject:file]) {
-			[self.fileDetails addObject:[[DropboxDetailViewModel alloc] initWithLocalFile:file client:self.client]];
+	for (NSString * fileName in localFilelist) {
+		if (![self fileDetailsContainsFileName:fileName]) {
+			[self.fileDetails addObject:[[DropboxDetailViewModel alloc] initWithLocalFile:fileName client:self.client]];
 		}
 	}
 
@@ -213,14 +181,53 @@
 
 #pragma mark: - File info
 
-- (void)addDetailsFromDropboxFileCache {
-	[self.dropboxFileCache enumerateObjectsUsingBlock:^(DBFILESMetadata * file, NSUInteger idx, BOOL *stop) {
-		DropboxDetailViewModel * detail = [[DropboxDetailViewModel alloc] initWithFile:file client:self.client];
-		if (![self.detailFileNames containsObject:detail.fileName]) {
-			[self.fileDetails addObject: detail];
-		}
-	}];
+// 1. Iterates over all DBFILESMetadata received from Dropbox
+// 2. Makes fileDetails if file not already loaded from local calls
+// 3. TODO: remove files not on dropbox
+- (void) mergeDropboxFileListWithFileDetails {
+    
+    // 1. Alle files op dropbox aan een detail linken
+    
+    [self.dropboxFileCache enumerateObjectsUsingBlock:^(DBFILESMetadata * file, NSUInteger idx, BOOL *stop) {
+        DropboxDetailViewModel * detail = [self dropboxDetailForFileName:file.name];
+        detail.file = file;
+    }];
+    
+    // 2. Overschot vanaf dropbox toevoegen.
+    
+    [self.dropboxFileCache enumerateObjectsUsingBlock:^(DBFILESMetadata * file, NSUInteger idx, BOOL *stop) {
+        
+        if (![self fileDetailsContainsFileName:file.name]) {
+            DropboxDetailViewModel * detail = [[DropboxDetailViewModel alloc] initWithFile:file client:self.client];
+            [self.fileDetails addObject: detail];
+        }
+        
+    }];
+    
+    // 3. Verwijder wat er niet op dropbox zat.
+    
+	
 
+}
+
+- (BOOL) fileDetailsContainsFileName: (NSString *) fileName {
+    for (DropboxDetailViewModel *fileDetail in self.fileDetails) {
+        if ([fileDetail.fileName.lowercaseString isEqualToString:fileName.lowercaseString]) {
+            return true;
+        }
+    }
+    return false;
+}
+
+- (DropboxDetailViewModel *) dropboxDetailForFileName: (NSString *) fileName {
+    
+    for (DropboxDetailViewModel *fileDetail in self.fileDetails) {
+        if (fileDetail.fileName == fileName) {
+            return fileDetail;
+        }
+    }
+    
+    return nil;
 }
 
 - (DropboxDetailViewModel* _Nullable) fileDetailAtIndexPath:(NSIndexPath*) indexPath {
@@ -230,7 +237,5 @@
 
 	return self.fileDetails[indexPath.row];
 }
-
-
 
 @end

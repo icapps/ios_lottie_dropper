@@ -13,7 +13,6 @@
 @interface DropboxDetailViewModel ()
 
 @property (nonatomic, strong) DBUserClient * client;
-@property (nonatomic, strong, nullable) DBFILESMetadata * file;
 @property (nonatomic, strong) NSString *localFile;
 @property (nonatomic, readonly) NSURL * _Nullable fileOnDisk;
 
@@ -127,6 +126,10 @@
 
 -(NSString *)fileName {
 	return self.localFile;
+}
+
+-(NSString *)debugDescription {
+    return [NSString stringWithFormat:@"%@%@", self, self.fileName];
 }
 
 @end

@@ -19,9 +19,10 @@ NS_ASSUME_NONNULL_BEGIN
 -(instancetype)initWithLocalFile: (NSString *) localFile client: (DBUserClient *)client;
 -(instancetype)initWithFile: (DBFILESMetadata *) file client: (DBUserClient *)client;
 
-#pragma mark: - Dropbox file load
+#pragma mark: - Dropbox file info
 
-@property (nonatomic, strong) NSDictionary * _Nullable json;
+@property (nonatomic, strong, nullable) DBFILESMetadata * file;
+@property (nonatomic, strong, nullable) NSDictionary * json;
 
 - (void) downloadFile:(void (^) (void)) done;
 
