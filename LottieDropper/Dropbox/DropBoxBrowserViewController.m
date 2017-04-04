@@ -50,7 +50,12 @@
 #pragma mark: Reload
 
 -(IBAction)reloadFileList:(id)sender {
-    
+    [self.browserViewModel initializeDropboxClient:^{
+        NSLog(@"Client has files %@", self.browserViewModel.fileDetails);
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            [self.collectionView reloadData];
+        }];
+    }];
 }
 
 #pragma mark: - UICollectionViewDataSource
