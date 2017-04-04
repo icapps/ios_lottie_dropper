@@ -28,71 +28,69 @@
 
 
 @interface DropboxBrowserViewModelSpec : XCTestCase
+@property (nonatomic, strong) MockDropboxBrowserViewModel *viewModel;
 
 @end
 
 @implementation DropboxBrowserViewModelSpec
 
+-(void)setUp {
+    [super setUp];
+    self.viewModel = [[MockDropboxBrowserViewModel alloc] init];
+    self.viewModel.mockFileNamesInOutputDirectory = @[@"A",@"B", @"C"];
+}
 
-- (void)testBrowserWithoutLocalCache {
-    MockDropboxBrowserViewModel * viewModel = [[MockDropboxBrowserViewModel alloc] init];
+- (void)testBrowserFromLocalCache {
     
-    viewModel.mockFileNamesInOutputDirectory = @[@"A",@"B", @"C"];
+    [self.viewModel setupFileDetailsFromLocalFilenames];
     
-    XCTAssertEqual(viewModel.fileDetails.count, 0);
+    XCTAssertEqualObjects([[self.viewModel fileDetailAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]] fileName], @"A");
+}
+
+- (void)testBrowserFromLocalCacheWithoutHiddenFiles {
     
-    [viewModel setupFileDetailsFromLocalFilenames];
+    self.viewModel.mockFileNamesInOutputDirectory = @[@".DS_Store", @"A",@"B", @"C"];
     
-    XCTAssertEqualObjects([[viewModel fileDetailAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]] fileName], @"A");
+    [self.viewModel setupFileDetailsFromLocalFilenames];
+    
+    XCTAssertEqualObjects([[self.viewModel fileDetailAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]] fileName], @"A");
 }
 
 
 - (void)testMergeWithDropboxFileList {
-    MockDropboxBrowserViewModel * viewModel = [[MockDropboxBrowserViewModel alloc] init];
     
-    viewModel.mockFileNamesInOutputDirectory = @[@"A",@"B", @"C"];
-    
-    XCTAssertEqual(viewModel.fileDetails.count, 0);
-    
-    [viewModel setupFileDetailsFromLocalFilenames];
+    [self.viewModel setupFileDetailsFromLocalFilenames];
     
     DBFILESMetadata * dropboxfileA = [[DBFILESMetadata alloc] initWithName:@"A"];
     DBFILESMetadata * dropboxfileB = [[DBFILESMetadata alloc] initWithName:@"B"];
     DBFILESMetadata * dropboxfileC = [[DBFILESMetadata alloc] initWithName:@"C"];
     DBFILESMetadata * dropboxfileD = [[DBFILESMetadata alloc] initWithName:@"D"];
 
-    viewModel.dropboxFileCache = [@[dropboxfileA, dropboxfileB, dropboxfileC, dropboxfileD] mutableCopy];
+    self.viewModel.dropboxFileCache = [@[dropboxfileA, dropboxfileB, dropboxfileC, dropboxfileD] mutableCopy];
     
-    [viewModel mergeDropboxFileListWithFileDetails];
+    [self.viewModel mergeDropboxFileListWithFileDetails];
     
-    [viewModel sort];
+    [self.viewModel sort];
     
-    // should have added D
-    XCTAssertEqualObjects([[viewModel fileDetailAtIndexPath:[NSIndexPath indexPathForItem:3 inSection:0]] fileName], @"D");
+    XCTAssertEqualObjects([[self.viewModel fileDetailAtIndexPath:[NSIndexPath indexPathForItem:3 inSection:0]] fileName], @"D");
 }
 
-- (void)testMergeWithDropboxFileListWitLessFiles {
-    MockDropboxBrowserViewModel * viewModel = [[MockDropboxBrowserViewModel alloc] init];
+- (void)testMergeWithDropboxFileListWithLessFiles {
     
-    viewModel.mockFileNamesInOutputDirectory = @[@"A",@"B", @"C"];
-    
-    XCTAssertEqual(viewModel.fileDetails.count, 0);
-    
-    [viewModel setupFileDetailsFromLocalFilenames];
+    [self.viewModel setupFileDetailsFromLocalFilenames];
     
     DBFILESMetadata * dropboxfileA = [[DBFILESMetadata alloc] initWithName:@"A"];
     DBFILESMetadata * dropboxfileC = [[DBFILESMetadata alloc] initWithName:@"C"];
     DBFILESMetadata * dropboxfileD = [[DBFILESMetadata alloc] initWithName:@"D"];
     
     // No B on dropbox
-    viewModel.dropboxFileCache = [@[dropboxfileA, dropboxfileC, dropboxfileD] mutableCopy];
+    self.viewModel.dropboxFileCache = [@[dropboxfileA, dropboxfileC, dropboxfileD] mutableCopy];
     
-    [viewModel mergeDropboxFileListWithFileDetails];
+    [self.viewModel mergeDropboxFileListWithFileDetails];
     
-    [viewModel sort];
+    [self.viewModel sort];
     
-    // should have added D
-    XCTAssertEqualObjects([[viewModel fileDetailAtIndexPath:[NSIndexPath indexPathForItem:3 inSection:0]] fileName], @"D");
+    XCTAssertEqualObjects([[self.viewModel fileDetailAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:0]] fileName], @"C");
 
 }
 

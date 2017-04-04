@@ -172,7 +172,7 @@
 	NSArray <NSString*> * localFilelist = [self fetchFilenamesFromOutputDirectory];
 
 	for (NSString * fileName in localFilelist) {
-		if (![self fileDetailsContainsFileName:fileName]) {
+		if ( ![fileName hasPrefix:@"."] && ![self fileDetailsContainsFileName:fileName]) {
 			[self.fileDetails addObject:[[DropboxDetailViewModel alloc] initWithLocalFile:fileName client:self.client]];
 		}
 	}
@@ -206,8 +206,22 @@
     
     // 3. Verwijder wat er niet op dropbox zat.
     
-	
+    for (int i = 0; i < self.fileDetails.count; i++) {
+        
+        if (![self dropboxFileCacheContainsFileName:[self.fileDetails[i] fileName]]) {
+            [self.fileDetails removeObjectAtIndex:i];
+        }
+    }
 
+}
+
+- (BOOL) dropboxFileCacheContainsFileName: (NSString *) fileName {
+    for (DBFILESMetadata *dropboxFile in self.dropboxFileCache) {
+        if ([dropboxFile.name.lowercaseString isEqualToString:fileName.lowercaseString]) {
+            return true;
+        }
+    }
+    return false;
 }
 
 - (BOOL) fileDetailsContainsFileName: (NSString *) fileName {
