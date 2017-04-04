@@ -103,19 +103,9 @@
 					 [self listFolderContinueWithClient:self.client cursor:cursor];
 				 } else {
 					 NSLog(@"List folder complete.");
+                     [self setupFileDetailsFromLocalFilenames];
 					 [self mergeDropboxFileListWithFileDetails];
-
-//					// save empty files if needed.
-//					 NSArray <NSString *>* newFiles = [self getNewFiles];
-//
-//					 if (newFiles.count != 0) {
-//						 for (NSString * filePath in newFiles) {
-//							 NSURL * url = [self.outputDirectory URLByAppendingPathComponent:filePath];
-//							 [self.fileManager createFileAtPath:url.path contents:nil attributes:nil];
-//						 }
-//
-//						 [self setupFileDetailsFromLocalFilenames];
-//					 }
+					 
 					 done();
 				 }
 			 } else {
@@ -183,7 +173,8 @@
 
 // 1. Iterates over all DBFILESMetadata received from Dropbox
 // 2. Makes fileDetails if file not already loaded from local calls
-// 3. TODO: remove files not on dropbox
+// 3. Remove files not on dropbox
+// 4. Add empty files for all dropbox files
 - (void) mergeDropboxFileListWithFileDetails {
     
     // 1. Alle files op dropbox aan een detail linken
@@ -210,9 +201,29 @@
         
         if (![self dropboxFileCacheContainsFileName:[self.fileDetails[i] fileName]]) {
             [self.fileDetails removeObjectAtIndex:i];
+            // 4, remove file from output directory
+            [self removeFileFromOutputDirectoryWithFileName:[self.fileDetails[i] fileName]];
+        }
+    }
+    
+    //4. Voeg lege files toe voor alle dropbox files die nog niet gedownload zijn.
+    
+    for (DropboxDetailViewModel * fileDetail in self.fileDetails) {
+        if (![self.fileManager fileExistsAtPath: [self.outputDirectory URLByAppendingPathComponent:fileDetail.fileName.lowercaseString].path]) {
+            NSURL * url = [self.outputDirectory URLByAppendingPathComponent:fileDetail.fileName.lowercaseString];
+            [self.fileManager createFileAtPath:url.path contents:nil attributes:nil];
         }
     }
 
+}
+
+- (void) removeFileFromOutputDirectoryWithFileName: (NSString *) fileName {
+    NSError * error;
+//    [self.fileManager removeItemAtPath:[self.outputDirectory URLByAppendingPathComponent:fileName.lowercaseString].path error:&error];
+    [self.fileManager removeItemAtURL:[self.outputDirectory URLByAppendingPathComponent:fileName.lowercaseString] error:&error];
+    if (error != nil) {
+        NSLog(@"%@", error);
+    }
 }
 
 - (BOOL) dropboxFileCacheContainsFileName: (NSString *) fileName {
