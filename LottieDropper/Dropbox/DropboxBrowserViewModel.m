@@ -163,7 +163,7 @@
 
 	for (NSString * fileName in localFilelist) {
 		if ( ![fileName hasPrefix:@"."] && ![self fileDetailsContainsFileName:fileName]) {
-			[self.fileDetails addObject:[[DropboxDetailViewModel alloc] initWithLocalFile:fileName client:self.client]];
+			[self.fileDetails addObject:[[DropboxDetailViewModel alloc] initWithFile:fileName client:self.client]];
 		}
 	}
 
@@ -181,7 +181,7 @@
     [self.dropboxFileCache enumerateObjectsUsingBlock:^(DBFILESMetadata * file, NSUInteger idx, BOOL *stop) {
         // 2.
         if (![self fileDetailsContainsFileName:file.name]) {
-            DropboxDetailViewModel * detail = [[DropboxDetailViewModel alloc] initWithLocalFile:file.name client:self.client];
+            DropboxDetailViewModel * detail = [[DropboxDetailViewModel alloc] initWithFile:file.name client:self.client];
             [self.fileDetails addObject: detail];
         }
         

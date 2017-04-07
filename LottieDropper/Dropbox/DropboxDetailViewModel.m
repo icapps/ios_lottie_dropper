@@ -13,7 +13,6 @@
 @interface DropboxDetailViewModel ()
 
 @property (nonatomic, strong) DBUserClient * client;
-@property (nonatomic, strong) NSString *localFile;
 @property (nonatomic, readonly) NSURL * _Nullable fileOnDisk;
 
 @end
@@ -22,10 +21,10 @@
 @synthesize fileOnDisk = _fileOnDisk;
 @synthesize json = _json;
 
--(instancetype)initWithLocalFile: (NSString *) localFile client: (DBUserClient *)client {
+-(instancetype)initWithFile: (NSString *) fileName client: (DBUserClient *)client {
 	self = [super init];
 	if (self) {
-		self.localFile = localFile;
+		self.fileName = fileName;
 		self.client = client;
 	}
 	return  self;
@@ -95,15 +94,11 @@
 /// When internet connection is available try using pathLower if it exists.
 /// Else use the local file name.
 -(NSString *) downloadURLString {
-    NSString *URLString = [NSString stringWithFormat:@"/%@", self.localFile];
+    NSString *URLString = [NSString stringWithFormat:@"/%@", self.fileName];
     return URLString;
 }
 
 #pragma mark - Display Info
-
--(NSString *)fileName {
-	return self.localFile;
-}
 
 -(NSString *)debugDescription {
     return [NSString stringWithFormat:@"%@%@", self, self.fileName];
