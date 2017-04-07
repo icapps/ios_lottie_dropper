@@ -198,8 +198,8 @@
     
     //4.
     for (DropboxDetailViewModel * fileDetail in self.fileDetails) {
-        if (![self.fileManager fileExistsAtPath: [self.outputDirectory URLByAppendingPathComponent:fileDetail.fileName.lowercaseString].path]) {
-            NSURL * url = [self.outputDirectory URLByAppendingPathComponent:fileDetail.fileName.lowercaseString];
+        if (![self.fileManager fileExistsAtPath: [self.outputDirectory URLByAppendingPathComponent:fileDetail.fileName].path]) {
+            NSURL * url = [self.outputDirectory URLByAppendingPathComponent:fileDetail.fileName];
             [self.fileManager createFileAtPath:url.path contents:nil attributes:nil];
         }
     }

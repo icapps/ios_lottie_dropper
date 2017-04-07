@@ -91,22 +91,12 @@
     
 }
 
-/// When internet connection is available try using pathLower if it exists.
-/// Else use the local file name.
 -(NSString *) downloadURLString {
     NSString *URLString = [NSString stringWithFormat:@"/%@", self.fileName];
     return URLString;
 }
 
 #pragma mark - Display Info
-
--(NSString *)capitalizedFileName {
-    if ([self.fileName length] != 0) {
-        return [NSString stringWithFormat:@"%@%@", [[self.fileName substringToIndex:1] uppercaseString], [self.fileName substringFromIndex:1]];
-    } else {
-        return @"";
-    }
-}
 
 -(NSString *)debugDescription {
     return [NSString stringWithFormat:@"%@%@", self, self.fileName];

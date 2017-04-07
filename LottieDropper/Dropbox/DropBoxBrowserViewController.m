@@ -71,7 +71,7 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
 	DropboxBrowserCollectionViewCell * _Nonnull cell = (DropboxBrowserCollectionViewCell *) [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([DropboxBrowserCollectionViewCell class]) forIndexPath:indexPath];
 	DropboxDetailViewModel * detail = [self.browserViewModel fileDetailAtIndexPath:indexPath];
-	[cell setup:detail.capitalizedFileName];
+	[cell setup:detail.fileName];
 	return  cell;
 }
 
