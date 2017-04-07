@@ -177,17 +177,9 @@
 // 4. Add empty files for all dropbox files
 - (void) mergeDropboxFileListWithFileDetails {
     
-    // 1. Alle files op dropbox aan een detail linken
-    
+    // 1.
     [self.dropboxFileCache enumerateObjectsUsingBlock:^(DBFILESMetadata * file, NSUInteger idx, BOOL *stop) {
-        DropboxDetailViewModel * detail = [self dropboxDetailForFileName:file.name];
-        detail.file = file;
-    }];
-    
-    // 2. Overschot vanaf dropbox toevoegen.
-    
-    [self.dropboxFileCache enumerateObjectsUsingBlock:^(DBFILESMetadata * file, NSUInteger idx, BOOL *stop) {
-        
+        // 2.
         if (![self fileDetailsContainsFileName:file.name]) {
             DropboxDetailViewModel * detail = [[DropboxDetailViewModel alloc] initWithFile:file client:self.client];
             [self.fileDetails addObject: detail];
@@ -195,19 +187,16 @@
         
     }];
     
-    // 3. Verwijder wat er niet op dropbox zat.
-    
+    // 3.
     for (int i = 0; i < self.fileDetails.count; i++) {
         
         if (![self dropboxFileCacheContainsFileName:[self.fileDetails[i] fileName]]) {
-            [self.fileDetails removeObjectAtIndex:i];
-            // 4, remove file from output directory
             [self removeFileFromOutputDirectoryWithFileName:[self.fileDetails[i] fileName]];
+            [self.fileDetails removeObjectAtIndex:i];
         }
     }
     
-    //4. Voeg lege files toe voor alle dropbox files die nog niet gedownload zijn.
-    
+    //4.
     for (DropboxDetailViewModel * fileDetail in self.fileDetails) {
         if (![self.fileManager fileExistsAtPath: [self.outputDirectory URLByAppendingPathComponent:fileDetail.fileName.lowercaseString].path]) {
             NSURL * url = [self.outputDirectory URLByAppendingPathComponent:fileDetail.fileName.lowercaseString];
