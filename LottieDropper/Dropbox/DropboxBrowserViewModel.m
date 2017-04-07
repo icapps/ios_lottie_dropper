@@ -91,7 +91,7 @@
 		 setResponseBlock:^(DBFILESListFolderResult *response, DBFILESListFolderError *routeError, DBRequestError *networkError) {
 
 			 if (response) {
-				 [self.dropboxFileCache addObjectsFromArray:response.entries];
+                 self.dropboxFileCache = [response.entries mutableCopy];
 
 					 // See if there is more to download.
 				 NSString *cursor = response.cursor;
