@@ -31,29 +31,13 @@
 	return  self;
 }
 
--(instancetype)initWithFile: (DBFILESMetadata *) file client: (DBUserClient*) client {
-	self = [super init];
-	if (self) {
-		self.file = file;
-		self.localFile = file.name;
-		self.client = client;
-	}
-	return  self;
-}
-
 #pragma mark - Dropbox Download
 
 - (void) downloadFile:(void (^) (void)) done {
 
 	NSFileManager *fileManager = [NSFileManager defaultManager];
 	NSURL *outputDirectory = [fileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask][0];
-    
-    // Check for dropbox or local files.
-    if (self.file.pathLower != nil) {
-        _fileOnDisk = [outputDirectory URLByAppendingPathComponent:self.file.pathLower];
-    } else {
-        _fileOnDisk = [outputDirectory URLByAppendingPathComponent:self.file.name];
-    }
+    _fileOnDisk = [outputDirectory URLByAppendingPathComponent:self.fileName];
 	
     Connectivity *connectivity = [[Connectivity alloc]init];
     if ([connectivity IsConnectionAvailable]) {
@@ -73,10 +57,10 @@
         NSData *data = [[NSFileManager defaultManager] contentsAtPath:[_fileOnDisk path]];
         NSError *error;
         self.json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
-        NSLog(@"Using file from disk %@", [self.file pathLower]);
+        NSLog(@"Using file from disk %@", self.fileName);
         done();
     } else {
-        NSLog(@"No file in disk at: %@", [self.file pathLower]);
+        NSLog(@"No file in disk at: %@", self.fileName);
     }
 }
 
@@ -111,15 +95,8 @@
 /// When internet connection is available try using pathLower if it exists.
 /// Else use the local file name.
 -(NSString *) downloadURLString {
-    Connectivity *connectivity = [[Connectivity alloc] init];
-    if ([connectivity IsConnectionAvailable] && self.file.pathLower != nil) {
-        return self.file.pathLower;
-    } else if (self.file.name != nil) {
-        NSString *URLString = [NSString stringWithFormat:@"/%@", self.file.name];
-        return URLString;
-    } else {
-        return @"";
-    }
+    NSString *URLString = [NSString stringWithFormat:@"/%@", self.localFile];
+    return URLString;
 }
 
 #pragma mark - Display Info

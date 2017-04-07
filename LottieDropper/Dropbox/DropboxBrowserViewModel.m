@@ -181,7 +181,7 @@
     [self.dropboxFileCache enumerateObjectsUsingBlock:^(DBFILESMetadata * file, NSUInteger idx, BOOL *stop) {
         // 2.
         if (![self fileDetailsContainsFileName:file.name]) {
-            DropboxDetailViewModel * detail = [[DropboxDetailViewModel alloc] initWithFile:file client:self.client];
+            DropboxDetailViewModel * detail = [[DropboxDetailViewModel alloc] initWithLocalFile:file.name client:self.client];
             [self.fileDetails addObject: detail];
         }
         

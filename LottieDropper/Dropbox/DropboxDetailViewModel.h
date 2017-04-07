@@ -17,11 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface DropboxDetailViewModel : NSObject
 
 -(instancetype)initWithLocalFile: (NSString *) localFile client: (DBUserClient *)client;
--(instancetype)initWithFile: (DBFILESMetadata *) file client: (DBUserClient *)client;
 
 #pragma mark: - Dropbox file info
 
-@property (nonatomic, strong, nullable) DBFILESMetadata * file;
 @property (nonatomic, strong, nullable) NSDictionary * json;
 
 - (void) downloadFile:(void (^) (void)) done;
