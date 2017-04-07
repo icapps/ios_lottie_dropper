@@ -22,6 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) NSString *fileName;
 
+- (NSString *) capitalizedFileName;
+
 #pragma mark: - Dropbox file info
 
 @property (nonatomic, strong, nullable) NSDictionary * json;
