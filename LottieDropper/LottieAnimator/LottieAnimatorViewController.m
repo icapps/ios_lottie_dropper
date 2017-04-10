@@ -17,6 +17,7 @@
 #pragma mark: Toolbar buttons
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *playButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *loopButton;
 
 @end
 
@@ -27,11 +28,28 @@
         [self.animation pause];
     } else {
         [self.animation playWithCompletion:^(BOOL animationFinished) {
-            [self changeToolbarButtonForState:!animationFinished];
+            [self changePlayButtonForState:!animationFinished];
         }];
     }
     
-    [self changeToolbarButtonForState: [self.animation isAnimationPlaying]];
+    [self changePlayButtonForState: [self.animation isAnimationPlaying]];
+}
+
+- (IBAction)loop:(id)sender {
+    self.animation.loopAnimation = !self.animation.loopAnimation;
+    if (self.animation.loopAnimation) {
+        self.loopButton.tintColor = [UIColor colorWithRed:50.f/255.f
+                                                    green:207.f/255.f
+                                                     blue:193.f/255.f
+                                                    alpha:1.f];
+
+    } else {
+        self.loopButton.tintColor = [UIColor colorWithRed:0.f/255.f
+                                                    green:122.f/255.f
+                                                     blue:255.f/255.f
+                                                    alpha:1.f];
+
+    }
 }
 
 - (void)viewDidLoad {
@@ -58,7 +76,7 @@
 		[[[self.animation centerYAnchor] constraintEqualToAnchor:self.view.centerYAnchor] setActive:YES];
         
         [self.animation playWithCompletion:^(BOOL animationFinished) {
-            [self changeToolbarButtonForState:!animationFinished];
+            [self changePlayButtonForState:!animationFinished];
         }];
 	} else {
 		NSLog(@"LottieAnimatorViewController needs a file before animating");
@@ -68,7 +86,7 @@
 }
 
 /// Changes the default playButton between pause and play item based on isPlaying.
-- (void) changeToolbarButtonForState: (BOOL) isPlaying {
+- (void) changePlayButtonForState: (BOOL) isPlaying {
      NSMutableArray *toolbarButtons = [[self.toolbar items] mutableCopy];
     
     if (isPlaying) {
