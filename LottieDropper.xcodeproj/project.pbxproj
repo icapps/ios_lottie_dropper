@@ -11,6 +11,7 @@
 		6D333A631E93D36A00B241F3 /* DropboxBrowserViewModelSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D333A621E93D36900B241F3 /* DropboxBrowserViewModelSpec.m */; };
 		9CD6F9095CD9DE104585E66F /* Pods_LottieDropper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D75ECD58F61901F591C49DC /* Pods_LottieDropper.framework */; };
 		B56D81331E8D0857001D5290 /* Connectivity.m in Sources */ = {isa = PBXBuildFile; fileRef = B56D81321E8D0857001D5290 /* Connectivity.m */; };
+		B5D9D65B1E9BB73400D91987 /* UIColor+LottieColors.m in Sources */ = {isa = PBXBuildFile; fileRef = B5D9D65A1E9BB73400D91987 /* UIColor+LottieColors.m */; };
 		C00416CB1E84312C00E92308 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C00416CA1E84312C00E92308 /* main.m */; };
 		C00416CE1E84312C00E92308 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C00416CD1E84312C00E92308 /* AppDelegate.m */; };
 		C00416D11E84312C00E92308 /* DropboxAccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C00416D01E84312C00E92308 /* DropboxAccessViewController.m */; };
@@ -50,6 +51,8 @@
 		844D526C8B6A9DD412568E06 /* Pods_LottieDropperTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LottieDropperTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B56D81311E8D0857001D5290 /* Connectivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Connectivity.h; sourceTree = "<group>"; };
 		B56D81321E8D0857001D5290 /* Connectivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Connectivity.m; sourceTree = "<group>"; };
+		B5D9D6591E9BB73400D91987 /* UIColor+LottieColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+LottieColors.h"; path = "../../Documents/UIColor+LottieColors.h"; sourceTree = "<group>"; };
+		B5D9D65A1E9BB73400D91987 /* UIColor+LottieColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+LottieColors.m"; path = "../../Documents/UIColor+LottieColors.m"; sourceTree = "<group>"; };
 		C00416C61E84312C00E92308 /* LottieDropper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LottieDropper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C00416CA1E84312C00E92308 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C00416CC1E84312C00E92308 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -135,6 +138,15 @@
 			name = "Google drive";
 			sourceTree = "<group>";
 		};
+		B5D9D6581E9BB72700D91987 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				B5D9D6591E9BB73400D91987 /* UIColor+LottieColors.h */,
+				B5D9D65A1E9BB73400D91987 /* UIColor+LottieColors.m */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
 		C00416BD1E84312C00E92308 = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +170,7 @@
 		C00416C81E84312C00E92308 /* LottieDropper */ = {
 			isa = PBXGroup;
 			children = (
+				B5D9D6581E9BB72700D91987 /* Common */,
 				6DE34F161E8BB406009DDBE8 /* Google drive */,
 				C0F3EF981E88FE1D004B007F /* ApplicationFlow */,
 				C00416C91E84312C00E92308 /* Bridge */,
@@ -457,6 +470,7 @@
 				C0F3EFA41E89088D004B007F /* LottieFlowControllerViewController.m in Sources */,
 				C0F3EFBD1E894DBB004B007F /* LottieAnimatorDetailViewModel.m in Sources */,
 				C00416D11E84312C00E92308 /* DropboxAccessViewController.m in Sources */,
+				B5D9D65B1E9BB73400D91987 /* UIColor+LottieColors.m in Sources */,
 				C0F3EFA71E890A5C004B007F /* DropBoxBrowserViewController.m in Sources */,
 				C0F3EFAD1E8922FE004B007F /* DropboxBrowserViewModel.m in Sources */,
 				C00416CE1E84312C00E92308 /* AppDelegate.m in Sources */,

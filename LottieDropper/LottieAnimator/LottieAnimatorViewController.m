@@ -8,6 +8,7 @@
 
 #import "LottieAnimatorViewController.h"
 #import "DropboxDetailViewModel.h"
+#import "UIColor+LottieColors.h"
 
 @import Lottie;
 
@@ -38,16 +39,10 @@
 - (IBAction)loop:(id)sender {
     self.animation.loopAnimation = !self.animation.loopAnimation;
     if (self.animation.loopAnimation) {
-        self.loopButton.tintColor = [UIColor colorWithRed:50.f/255.f
-                                                    green:207.f/255.f
-                                                     blue:193.f/255.f
-                                                    alpha:1.f];
+        self.loopButton.tintColor = [UIColor sapGreenColor];
 
     } else {
-        self.loopButton.tintColor = [UIColor colorWithRed:0.f/255.f
-                                                    green:122.f/255.f
-                                                     blue:255.f/255.f
-                                                    alpha:1.f];
+        self.loopButton.tintColor = [UIColor deepSkyBlueColor];
 
     }
 }
@@ -99,8 +94,7 @@
 }
 
 - (void) resetSliderIfNeeded {
-    self.slider.maximumValue = self.animation.animationDuration;
-    if (self.slider.value == self.animation.animationDuration) {
+    if (self.slider.value == self.slider.maximumValue) {
         self.slider.value = 0;
     }
 }
