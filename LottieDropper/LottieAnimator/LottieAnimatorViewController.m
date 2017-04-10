@@ -88,7 +88,7 @@
 }
 
 - (void) startAnimation {
-    [self resetSlider];
+    [self resetSliderIfNeeded];
     [self.animation playWithCompletion:^(BOOL animationFinished) {
         self.slider.value = self.animation.animationProgress;
         [self changePlayButtonForState:!animationFinished];
@@ -96,8 +96,10 @@
     [self changePlayButtonForState: [self.animation isAnimationPlaying]];
 }
 
-- (void) resetSlider {
-    self.slider.value = 0;
+- (void) resetSliderIfNeeded {
+    if (self.slider.value == self.animation.animationDuration) {
+        self.slider.value = 0;
+    }
 }
 /// Changes the default playButton between pause and play item based on isPlaying.
 - (void) changePlayButtonForState: (BOOL) isPlaying {
