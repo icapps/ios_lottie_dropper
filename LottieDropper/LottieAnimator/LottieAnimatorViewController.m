@@ -51,11 +51,13 @@
 
     }
 }
+
 - (IBAction)progressValueChanged:(UISlider *)sender {
     self.animation.animationProgress = sender.value;
     [self changePlayButtonForState: [self.animation isAnimationPlaying]];
 }
 
+#pragma mark: viewDidLoad
 - (void)viewDidLoad {
     [super viewDidLoad];
    
@@ -68,6 +70,7 @@
 
 }
 
+#pragma mark: Load & start animation
 - (void) loadAnimation {
 
 	if (self.dropboxDetail.json != nil) {
@@ -83,7 +86,6 @@
 	} else {
 		NSLog(@"LottieAnimatorViewController needs a file before animating");
 	}
-
 
 }
 
@@ -102,6 +104,7 @@
         self.slider.value = 0;
     }
 }
+
 /// Changes the default playButton between pause and play item based on isPlaying.
 - (void) changePlayButtonForState: (BOOL) isPlaying {
      NSMutableArray *toolbarButtons = [[self.toolbar items] mutableCopy];
