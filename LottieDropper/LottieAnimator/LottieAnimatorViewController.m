@@ -89,6 +89,7 @@
 
 - (void) startAnimation {
     [self resetSlider];
+    [self createTimer];
     [self.animation playWithCompletion:^(BOOL animationFinished) {
         self.slider.value = self.animation.animationProgress;
         [self changePlayButtonForState:!animationFinished];
@@ -99,6 +100,29 @@
 - (void) resetSlider {
     self.slider.value = 0;
 }
+
+- (void) createTimer {
+    NSTimer *timer = [NSTimer timerWithTimeInterval:(0.01) target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
+    
+    NSRunLoop *runner = [NSRunLoop currentRunLoop];
+    [runner addTimer:timer forMode:NSDefaultRunLoopMode];
+}
+
+- (void)timerFired:(NSTimer*)theTimer {
+    
+    self.slider.maximumValue= self.animation.animationDuration;
+    
+    if(self.slider.value == self.animation.animationDuration)
+    {
+        // Terminate the loop
+        [theTimer invalidate];
+    }
+    else
+    {
+        self.slider.value= self.animation.animationProgress;
+    }
+}
+
 /// Changes the default playButton between pause and play item based on isPlaying.
 - (void) changePlayButtonForState: (BOOL) isPlaying {
      NSMutableArray *toolbarButtons = [[self.toolbar items] mutableCopy];
