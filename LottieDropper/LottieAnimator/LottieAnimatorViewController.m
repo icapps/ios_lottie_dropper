@@ -97,6 +97,7 @@
 }
 
 - (void) resetSliderIfNeeded {
+    self.slider.maximumValue = self.animation.animationDuration;
     if (self.slider.value == self.animation.animationDuration) {
         self.slider.value = 0;
     }
