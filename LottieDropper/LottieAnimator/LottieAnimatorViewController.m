@@ -112,7 +112,7 @@
     
     self.slider.maximumValue= self.animation.animationDuration;
     
-    if(self.slider.value == self.animation.animationDuration)
+    if(self.slider.value == self.animation.animationDuration && !self.animation.loopAnimation)
     {
         // Terminate the loop
         [theTimer invalidate];
