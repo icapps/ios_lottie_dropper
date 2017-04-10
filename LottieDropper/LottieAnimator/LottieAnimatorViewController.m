@@ -12,16 +12,32 @@
 @import Lottie;
 
 @interface LottieAnimatorViewController ()
+@property (strong, nonatomic) LOTAnimationView *animation;
+
+#pragma mark: Toolbar buttons
+@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *playButton;
 
 @end
 
 @implementation LottieAnimatorViewController
 
+- (IBAction)playOrPauseAnimation:(id)sender {
+    if ([self.animation isAnimationPlaying]) {
+        [self.animation pause];
+    } else {
+        [self.animation playWithCompletion:^(BOOL animationFinished) {
+            [self changeToolbarButtonForState:!animationFinished];
+        }];
+    }
+    
+    [self changeToolbarButtonForState: [self.animation isAnimationPlaying]];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+   
 	NSLog(@"Animating file %@", self.dropboxDetail.fileName );
-
 	[self.dropboxDetail downloadFile:^{
 		[[NSOperationQueue mainQueue] addOperationWithBlock:^{
 			[self loadAnimation];
@@ -33,24 +49,36 @@
 - (void) loadAnimation {
 
 	if (self.dropboxDetail.json != nil) {
-		LOTAnimationView *animation = [LOTAnimationView animationFromJSON:self.dropboxDetail.json];
-		animation.translatesAutoresizingMaskIntoConstraints = NO;
+		_animation = [LOTAnimationView animationFromJSON:self.dropboxDetail.json];
+		_animation.translatesAutoresizingMaskIntoConstraints = NO;
 
-		[self.view addSubview:animation];
+		[self.view addSubview:self.animation];
 
-		[[[animation centerXAnchor] constraintEqualToAnchor:self.view.centerXAnchor] setActive:YES];
-		[[[animation centerYAnchor] constraintEqualToAnchor:self.view.centerYAnchor] setActive:YES];
-
-
-		[animation playWithCompletion:^(BOOL animationFinished) {
-				// Do Something
-		}];
-
+		[[[self.animation centerXAnchor] constraintEqualToAnchor:self.view.centerXAnchor] setActive:YES];
+		[[[self.animation centerYAnchor] constraintEqualToAnchor:self.view.centerYAnchor] setActive:YES];
+        
+        [self.animation playWithCompletion:^(BOOL animationFinished) {
+            [self changeToolbarButtonForState:!animationFinished];
+        }];
 	} else {
 		NSLog(@"LottieAnimatorViewController needs a file before animating");
 	}
 
 
+}
+
+- (void) changeToolbarButtonForState: (BOOL) isPlaying {
+     NSMutableArray *toolbarButtons = [[self.toolbar items] mutableCopy];
+    
+    if (isPlaying) {
+        _playButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPause target:self action:@selector(playOrPauseAnimation:)];
+    } else {
+        _playButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(playOrPauseAnimation:)];
+    }
+    
+    [toolbarButtons removeObjectAtIndex:4];
+    [toolbarButtons insertObject:self.playButton atIndex:4];
+    [self.toolbar setItems:toolbarButtons];
 }
 
 @end
