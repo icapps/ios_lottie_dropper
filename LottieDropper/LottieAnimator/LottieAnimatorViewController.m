@@ -67,6 +67,7 @@
 
 }
 
+/// Changes the default playButton between pause and play item based on isPlaying.
 - (void) changeToolbarButtonForState: (BOOL) isPlaying {
      NSMutableArray *toolbarButtons = [[self.toolbar items] mutableCopy];
     
