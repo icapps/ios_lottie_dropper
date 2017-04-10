@@ -25,21 +25,21 @@
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
                                     <barButtonItem systemItem="add" id="nqz-Ro-20n"/>
-                                    <barButtonItem width="53.5" systemItem="fixedSpace" id="bCO-k7-arK"/>
+                                    <barButtonItem systemItem="flexibleSpace" id="bCO-k7-arK"/>
                                     <barButtonItem systemItem="refresh" id="hX3-ng-tUv">
                                         <connections>
                                             <action selector="loop:" destination="Vbl-7L-o0n" id="vT9-oU-9IY"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem width="54" systemItem="fixedSpace" id="D5s-fA-YRK"/>
+                                    <barButtonItem systemItem="flexibleSpace" id="D5s-fA-YRK"/>
                                     <barButtonItem systemItem="play" id="877-7E-nnc">
                                         <connections>
                                             <action selector="playOrPauseAnimation:" destination="Vbl-7L-o0n" id="V72-HC-S86"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem width="54" systemItem="fixedSpace" id="zps-r4-fiL"/>
+                                    <barButtonItem systemItem="flexibleSpace" id="zps-r4-fiL"/>
                                     <barButtonItem systemItem="add" id="zBa-io-yxX"/>
-                                    <barButtonItem width="54.5" systemItem="fixedSpace" id="jHL-S6-oUO"/>
+                                    <barButtonItem systemItem="flexibleSpace" id="jHL-S6-oUO"/>
                                     <barButtonItem systemItem="add" id="Bvu-K0-aiT"/>
                                 </items>
                             </toolbar>
