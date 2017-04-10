@@ -25,15 +25,15 @@
 
 @implementation DropBoxBrowserViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-	self.browserViewModel = [[DropboxBrowserViewModel alloc] init];
-	[self.browserViewModel initializeDropboxClient:^{
-		NSLog(@"Client has files %@", self.browserViewModel.fileDetails);
-		[[NSOperationQueue mainQueue] addOperationWithBlock:^{
-			[self.collectionView reloadData];
-		}];
-	}];
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.browserViewModel = [[DropboxBrowserViewModel alloc] init];
+    [self.browserViewModel initializeDropboxClient:^{
+        NSLog(@"Client has files %@", self.browserViewModel.fileDetails);
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            [self.collectionView reloadData];
+        }];
+    }];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
