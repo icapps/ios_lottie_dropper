@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *playButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *loopButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *backButton;
 
 @end
 
@@ -43,8 +44,11 @@
 
     } else {
         self.loopButton.tintColor = [UIColor deepSkyBlueColor];
-
     }
+}
+
+- (IBAction)backToList:(UIBarButtonItem *)sender {
+    
 }
 
 - (IBAction)progressValueChanged:(UISlider *)sender {
