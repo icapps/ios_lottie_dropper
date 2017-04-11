@@ -42,7 +42,7 @@
                                     <barButtonItem systemItem="flexibleSpace" id="jHL-S6-oUO"/>
                                     <barButtonItem systemItem="bookmarks" id="Bvu-K0-aiT">
                                         <connections>
-                                            <segue destination="JDp-rI-LjG" kind="show" id="GFF-vX-gf4"/>
+                                            <segue destination="1OC-Qw-JvD" kind="show" id="xgd-E4-e79"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -75,23 +75,13 @@
             </objects>
             <point key="canvasLocation" x="2474" y="37"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="lAp-Gh-Qy1">
+        <!--Settings-->
+        <scene sceneID="X8T-zI-a9s">
             <objects>
-                <viewController id="JDp-rI-LjG" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="6yb-di-GVb"/>
-                        <viewControllerLayoutGuide type="bottom" id="V5C-KO-bPQ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="H6R-n1-7d9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ihC-Gy-O5E" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Settings" id="1OC-Qw-JvD" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HYu-Hj-KZP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3260" y="393"/>
+            <point key="canvasLocation" x="3119" y="36"/>
         </scene>
     </scenes>
 </document>

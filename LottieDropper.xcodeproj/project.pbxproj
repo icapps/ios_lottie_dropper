@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		24FAB8B0084EFF1473CDA9B1 /* Pods_LottieDropperTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844D526C8B6A9DD412568E06 /* Pods_LottieDropperTests.framework */; };
 		6D333A631E93D36A00B241F3 /* DropboxBrowserViewModelSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D333A621E93D36900B241F3 /* DropboxBrowserViewModelSpec.m */; };
+		6DF7E7A51E9CC18600B699B2 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DF7E7A41E9CC18600B699B2 /* Settings.storyboard */; };
 		9CD6F9095CD9DE104585E66F /* Pods_LottieDropper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D75ECD58F61901F591C49DC /* Pods_LottieDropper.framework */; };
 		B56D81331E8D0857001D5290 /* Connectivity.m in Sources */ = {isa = PBXBuildFile; fileRef = B56D81321E8D0857001D5290 /* Connectivity.m */; };
 		B5D9D6611E9CB95700D91987 /* UIColor+LottieColors.m in Sources */ = {isa = PBXBuildFile; fileRef = B5D9D6601E9CB95700D91987 /* UIColor+LottieColors.m */; };
@@ -48,6 +49,7 @@
 		1D75ECD58F61901F591C49DC /* Pods_LottieDropper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LottieDropper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		44372067C7C3EF637BE96C8F /* Pods-LottieDropperTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LottieDropperTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LottieDropperTests/Pods-LottieDropperTests.release.xcconfig"; sourceTree = "<group>"; };
 		6D333A621E93D36900B241F3 /* DropboxBrowserViewModelSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropboxBrowserViewModelSpec.m; sourceTree = "<group>"; };
+		6DF7E7A41E9CC18600B699B2 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		844D526C8B6A9DD412568E06 /* Pods_LottieDropperTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LottieDropperTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B56D81311E8D0857001D5290 /* Connectivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Connectivity.h; sourceTree = "<group>"; };
 		B56D81321E8D0857001D5290 /* Connectivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Connectivity.m; sourceTree = "<group>"; };
@@ -136,6 +138,14 @@
 			children = (
 			);
 			path = "Google drive";
+			sourceTree = "<group>";
+		};
+		6DF7E7A31E9CC16400B699B2 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				6DF7E7A41E9CC18600B699B2 /* Settings.storyboard */,
+			);
+			name = Settings;
 			sourceTree = "<group>";
 		};
 		B5D9D6581E9BB72700D91987 /* Common */ = {
@@ -247,6 +257,7 @@
 		C0F3EFB41E894D20004B007F /* LottieAnimator */ = {
 			isa = PBXGroup;
 			children = (
+				6DF7E7A31E9CC16400B699B2 /* Settings */,
 				C0F3EFBF1E895781004B007F /* Animation1.json */,
 				C0F3EFBE1E895781004B007F /* Animation2.json */,
 				C0F3EFB51E894D4D004B007F /* LottieAnimator.storyboard */,
@@ -352,6 +363,7 @@
 				C00416D91E84312C00E92308 /* LaunchScreen.storyboard in Resources */,
 				C0F3EFC11E895781004B007F /* Animation1.json in Resources */,
 				C0F3EFC01E895781004B007F /* Animation2.json in Resources */,
+				6DF7E7A51E9CC18600B699B2 /* Settings.storyboard in Resources */,
 				C00416D61E84312C00E92308 /* Assets.xcassets in Resources */,
 				C00416D41E84312C00E92308 /* Main.storyboard in Resources */,
 				C0F3EFAA1E890A7F004B007F /* Dropbox.storyboard in Resources */,
