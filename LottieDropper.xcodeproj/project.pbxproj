@@ -10,6 +10,10 @@
 		24FAB8B0084EFF1473CDA9B1 /* Pods_LottieDropperTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844D526C8B6A9DD412568E06 /* Pods_LottieDropperTests.framework */; };
 		6D333A631E93D36A00B241F3 /* DropboxBrowserViewModelSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D333A621E93D36900B241F3 /* DropboxBrowserViewModelSpec.m */; };
 		6DF7E7A51E9CC18600B699B2 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DF7E7A41E9CC18600B699B2 /* Settings.storyboard */; };
+		6DF7E7A81E9CC3AF00B699B2 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DF7E7A71E9CC3AF00B699B2 /* SettingsViewController.m */; };
+		6DF7E7AB1E9CC3C500B699B2 /* SettingsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DF7E7AA1E9CC3C500B699B2 /* SettingsViewModel.m */; };
+		6DF7E7AE1E9CC7D300B699B2 /* SettingsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DF7E7AD1E9CC7D300B699B2 /* SettingsTableViewCell.m */; };
+		6DF7E7B11E9CC88700B699B2 /* SettingsType.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DF7E7B01E9CC88700B699B2 /* SettingsType.m */; };
 		9CD6F9095CD9DE104585E66F /* Pods_LottieDropper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D75ECD58F61901F591C49DC /* Pods_LottieDropper.framework */; };
 		B56D81331E8D0857001D5290 /* Connectivity.m in Sources */ = {isa = PBXBuildFile; fileRef = B56D81321E8D0857001D5290 /* Connectivity.m */; };
 		B5D9D6611E9CB95700D91987 /* UIColor+LottieColors.m in Sources */ = {isa = PBXBuildFile; fileRef = B5D9D6601E9CB95700D91987 /* UIColor+LottieColors.m */; };
@@ -50,6 +54,14 @@
 		44372067C7C3EF637BE96C8F /* Pods-LottieDropperTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LottieDropperTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LottieDropperTests/Pods-LottieDropperTests.release.xcconfig"; sourceTree = "<group>"; };
 		6D333A621E93D36900B241F3 /* DropboxBrowserViewModelSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropboxBrowserViewModelSpec.m; sourceTree = "<group>"; };
 		6DF7E7A41E9CC18600B699B2 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		6DF7E7A61E9CC3AF00B699B2 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		6DF7E7A71E9CC3AF00B699B2 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		6DF7E7A91E9CC3C500B699B2 /* SettingsViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewModel.h; sourceTree = "<group>"; };
+		6DF7E7AA1E9CC3C500B699B2 /* SettingsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewModel.m; sourceTree = "<group>"; };
+		6DF7E7AC1E9CC7D300B699B2 /* SettingsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewCell.h; sourceTree = "<group>"; };
+		6DF7E7AD1E9CC7D300B699B2 /* SettingsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewCell.m; sourceTree = "<group>"; };
+		6DF7E7AF1E9CC88700B699B2 /* SettingsType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsType.h; sourceTree = "<group>"; };
+		6DF7E7B01E9CC88700B699B2 /* SettingsType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsType.m; sourceTree = "<group>"; };
 		844D526C8B6A9DD412568E06 /* Pods_LottieDropperTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LottieDropperTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B56D81311E8D0857001D5290 /* Connectivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Connectivity.h; sourceTree = "<group>"; };
 		B56D81321E8D0857001D5290 /* Connectivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Connectivity.m; sourceTree = "<group>"; };
@@ -144,6 +156,14 @@
 			isa = PBXGroup;
 			children = (
 				6DF7E7A41E9CC18600B699B2 /* Settings.storyboard */,
+				6DF7E7A61E9CC3AF00B699B2 /* SettingsViewController.h */,
+				6DF7E7A71E9CC3AF00B699B2 /* SettingsViewController.m */,
+				6DF7E7A91E9CC3C500B699B2 /* SettingsViewModel.h */,
+				6DF7E7AA1E9CC3C500B699B2 /* SettingsViewModel.m */,
+				6DF7E7AC1E9CC7D300B699B2 /* SettingsTableViewCell.h */,
+				6DF7E7AD1E9CC7D300B699B2 /* SettingsTableViewCell.m */,
+				6DF7E7AF1E9CC88700B699B2 /* SettingsType.h */,
+				6DF7E7B01E9CC88700B699B2 /* SettingsType.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -484,13 +504,17 @@
 				C00416D11E84312C00E92308 /* DropboxAccessViewController.m in Sources */,
 				C0F3EFA71E890A5C004B007F /* DropBoxBrowserViewController.m in Sources */,
 				C0F3EFAD1E8922FE004B007F /* DropboxBrowserViewModel.m in Sources */,
+				6DF7E7B11E9CC88700B699B2 /* SettingsType.m in Sources */,
+				6DF7E7AE1E9CC7D300B699B2 /* SettingsTableViewCell.m in Sources */,
 				B5D9D6611E9CB95700D91987 /* UIColor+LottieColors.m in Sources */,
 				C00416CE1E84312C00E92308 /* AppDelegate.m in Sources */,
 				C0F3EFB31E8945C2004B007F /* DropboxDetailViewModel.m in Sources */,
 				C0F3EFBA1E894D70004B007F /* LottieAnimatorViewController.m in Sources */,
+				6DF7E7AB1E9CC3C500B699B2 /* SettingsViewModel.m in Sources */,
 				C0F3EF951E88FC1D004B007F /* LottieDropperKeychainBridge.swift in Sources */,
 				C0F3EFB01E89413F004B007F /* DropboxBrowserCollectionViewCell.m in Sources */,
 				C00416CB1E84312C00E92308 /* main.m in Sources */,
+				6DF7E7A81E9CC3AF00B699B2 /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
