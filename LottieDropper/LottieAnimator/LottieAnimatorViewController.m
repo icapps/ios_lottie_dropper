@@ -65,6 +65,9 @@
 
 }
 
+- (IBAction)exitToLottieAnimatorView:(UIStoryboardSegue *)segue {
+}
+
 #pragma mark: Load & start animation
 - (void) loadAnimation {
 
