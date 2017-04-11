@@ -106,13 +106,27 @@
                                     <segue destination="Kb2-x0-T8e" kind="unwind" unwindAction="exitToLottieAnimatorView:" id="C9U-Gx-qRm"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="e4M-Gu-fI5">
+                                <rect key="frame" x="20" y="82" width="335" height="565"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="e4M-Gu-fI5" firstAttribute="leading" secondItem="EqK-8Q-a2Y" secondAttribute="leading" constant="20" id="6uh-it-Tpk"/>
                             <constraint firstItem="Kzf-6X-ws3" firstAttribute="top" secondItem="CBH-6W-fDx" secondAttribute="bottom" constant="20" id="Ffq-08-ico"/>
                             <constraint firstAttribute="trailing" secondItem="Kzf-6X-ws3" secondAttribute="trailing" constant="20" id="Fhs-nT-aHB"/>
+                            <constraint firstItem="e4M-Gu-fI5" firstAttribute="top" secondItem="Kzf-6X-ws3" secondAttribute="bottom" constant="12" id="J70-bc-99M"/>
+                            <constraint firstItem="e4M-Gu-fI5" firstAttribute="trailing" secondItem="Kzf-6X-ws3" secondAttribute="trailing" id="Ohv-np-z7A"/>
+                            <constraint firstItem="tSQ-Sh-W1R" firstAttribute="top" secondItem="e4M-Gu-fI5" secondAttribute="bottom" constant="20" id="zeN-51-ZBu"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="errorLogTextView" destination="e4M-Gu-fI5" id="F0E-lC-cVh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zgi-Yp-jTe" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Kb2-x0-T8e" userLabel="Exit" sceneMemberID="exit"/>

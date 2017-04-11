@@ -13,7 +13,22 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	[DBClientsManager setupWithAppKey:@"eymfhqfru153aws"];
-
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory,NSUserDomainMask, YES);
+    // TODO: fix library to documents?
+    NSString *libraryDirectory = [paths objectAtIndex:0];
+    NSString *fileName =[NSString stringWithFormat:@"%@.log",@"LottieConsole"];
+    NSString *logFilePath = [libraryDirectory stringByAppendingPathComponent:fileName];
+    NSFileManager *fileManager = [[NSFileManager alloc] init];
+    
+    
+    if ([fileManager fileExistsAtPath:logFilePath]) {
+        NSError *error;
+        [fileManager removeItemAtPath:logFilePath error:&error];
+    }
+    
+    freopen([logFilePath cStringUsingEncoding:NSASCIIStringEncoding],"a+",stderr);
+    
 	return YES;
 }
 

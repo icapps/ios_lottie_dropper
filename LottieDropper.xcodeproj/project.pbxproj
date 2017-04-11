@@ -14,6 +14,7 @@
 		B56D81331E8D0857001D5290 /* Connectivity.m in Sources */ = {isa = PBXBuildFile; fileRef = B56D81321E8D0857001D5290 /* Connectivity.m */; };
 		B5D9D6611E9CB95700D91987 /* UIColor+LottieColors.m in Sources */ = {isa = PBXBuildFile; fileRef = B5D9D6601E9CB95700D91987 /* UIColor+LottieColors.m */; };
 		B5D9D6961E9CF92200D91987 /* ErrorLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5D9D6951E9CF92200D91987 /* ErrorLogViewController.m */; };
+		B5D9D6991E9D06AD00D91987 /* ErrorLogViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B5D9D6981E9D06AD00D91987 /* ErrorLogViewModel.m */; };
 		C00416CB1E84312C00E92308 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C00416CA1E84312C00E92308 /* main.m */; };
 		C00416CE1E84312C00E92308 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C00416CD1E84312C00E92308 /* AppDelegate.m */; };
 		C00416D11E84312C00E92308 /* DropboxAccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C00416D01E84312C00E92308 /* DropboxAccessViewController.m */; };
@@ -58,6 +59,8 @@
 		B5D9D6601E9CB95700D91987 /* UIColor+LottieColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+LottieColors.m"; sourceTree = "<group>"; };
 		B5D9D6941E9CF92200D91987 /* ErrorLogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorLogViewController.h; sourceTree = "<group>"; };
 		B5D9D6951E9CF92200D91987 /* ErrorLogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorLogViewController.m; sourceTree = "<group>"; };
+		B5D9D6971E9D06AD00D91987 /* ErrorLogViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorLogViewModel.h; sourceTree = "<group>"; };
+		B5D9D6981E9D06AD00D91987 /* ErrorLogViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorLogViewModel.m; sourceTree = "<group>"; };
 		C00416C61E84312C00E92308 /* LottieDropper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LottieDropper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C00416CA1E84312C00E92308 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C00416CC1E84312C00E92308 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -165,6 +168,8 @@
 			children = (
 				B5D9D6941E9CF92200D91987 /* ErrorLogViewController.h */,
 				B5D9D6951E9CF92200D91987 /* ErrorLogViewController.m */,
+				B5D9D6971E9D06AD00D91987 /* ErrorLogViewModel.h */,
+				B5D9D6981E9D06AD00D91987 /* ErrorLogViewModel.m */,
 			);
 			name = "Error log";
 			sourceTree = "<group>";
@@ -505,6 +510,7 @@
 				C0F3EF951E88FC1D004B007F /* LottieDropperKeychainBridge.swift in Sources */,
 				C0F3EFB01E89413F004B007F /* DropboxBrowserCollectionViewCell.m in Sources */,
 				C00416CB1E84312C00E92308 /* main.m in Sources */,
+				B5D9D6991E9D06AD00D91987 /* ErrorLogViewModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
