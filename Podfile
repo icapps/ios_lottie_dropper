@@ -8,6 +8,7 @@ target 'LottieDropper' do
    pod 'Stella', '~> 1.1.0'
    pod 'lottie-ios', '~> 1.5.1'
    pod 'Reachability', '~> 3.2'
+   pod 'NKOColorPickerView'
 
   target 'LottieDropperTests' do
     inherit! :search_paths
