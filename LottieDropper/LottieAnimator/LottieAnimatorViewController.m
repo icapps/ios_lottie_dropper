@@ -9,12 +9,16 @@
 #import "LottieAnimatorViewController.h"
 #import "DropboxDetailViewModel.h"
 #import "UIColor+LottieColors.h"
+#import "NKOColorPickerView.h"
 
 @import Lottie;
 
 @interface LottieAnimatorViewController ()
 @property (strong, nonatomic) LOTAnimationView *animation;
 @property (weak, nonatomic) IBOutlet UISlider *slider;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *colorViewTopConstraint;
+@property (weak, nonatomic) IBOutlet NKOColorPickerView *colorPickerView;
+@property (assign) BOOL isColorPickerOpen;
 
 #pragma mark: Toolbar buttons
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
@@ -25,34 +29,8 @@
 
 @implementation LottieAnimatorViewController
 
-#pragma mark: Toolbar actions
-- (IBAction)playOrPauseAnimation:(id)sender {
-    if ([self.animation isAnimationPlaying]) {
-        [self.animation pause];
-    } else {
-        [self startAnimation];
-    }
-    [self changePlayButtonForState: [self.animation isAnimationPlaying]];
-    
-}
-
-- (IBAction)loop:(id)sender {
-    self.animation.loopAnimation = !self.animation.loopAnimation;
-    if (self.animation.loopAnimation) {
-        self.loopButton.tintColor = [UIColor sapGreenColor];
-
-    } else {
-        self.loopButton.tintColor = [UIColor deepSkyBlueColor];
-
-    }
-}
-
-- (IBAction)progressValueChanged:(UISlider *)sender {
-    self.animation.animationProgress = sender.value;
-    [self changePlayButtonForState: [self.animation isAnimationPlaying]];
-}
-
 #pragma mark: viewDidLoad
+
 - (void)viewDidLoad {
     [super viewDidLoad];
    
@@ -62,10 +40,55 @@
 			[self loadAnimation];
 		}];
 	}];
+    
+    self.colorPickerView.didChangeColorBlock = ^(UIColor *color){
+        self.view.backgroundColor = color;
+    };
+    
+    [self setupUI];
+}
 
+#pragma mark: Setup UI
+
+- (void) setupUI {
+    self.colorPickerView.layer.cornerRadius = 10;
+}
+
+#pragma mark: Toolbar actions
+
+- (IBAction)playOrPauseAnimation:(id)sender {
+    if ([self.animation isAnimationPlaying]) {
+        [self.animation pause];
+    } else {
+        [self startAnimation];
+    }
+    [self changePlayButtonForState: [self.animation isAnimationPlaying]];
+}
+
+- (IBAction)loop:(id)sender {
+    self.animation.loopAnimation = !self.animation.loopAnimation;
+    if (self.animation.loopAnimation) {
+        self.loopButton.tintColor = [UIColor sapGreenColor];
+    } else {
+        self.loopButton.tintColor = [UIColor deepSkyBlueColor];
+    }
+}
+
+- (IBAction)progressValueChanged:(UISlider *)sender {
+    self.animation.animationProgress = sender.value;
+    [self changePlayButtonForState: [self.animation isAnimationPlaying]];
+}
+
+- (IBAction)openOrCloseColorPicker:(id)sender {
+    if (self.isColorPickerOpen) {
+        [self shouldOpenColorPicker:false];
+    } else {
+        [self shouldOpenColorPicker:true];
+    }
 }
 
 #pragma mark: Load & start animation
+
 - (void) loadAnimation {
 
 	if (self.dropboxDetail.json != nil) {
@@ -112,6 +135,26 @@
     [toolbarButtons removeObjectAtIndex:4];
     [toolbarButtons insertObject:self.playButton atIndex:4];
     [self.toolbar setItems:toolbarButtons];
+}
+
+#pragma mark: Open/Close color picker.
+
+- (void)shouldOpenColorPicker: (BOOL)shouldOpen {
+    if (shouldOpen) {
+        self.isColorPickerOpen = true;
+        self.colorViewTopConstraint.constant = -252;
+        
+        [UIView animateWithDuration:0.35 animations:^{
+            [self.view layoutIfNeeded];
+        }];
+    } else {
+        self.isColorPickerOpen = false;
+        self.colorViewTopConstraint.constant = 0;
+        
+        [UIView animateWithDuration:0.35 animations:^{
+            [self.view layoutIfNeeded];
+        }];
+    }
 }
 
 @end
