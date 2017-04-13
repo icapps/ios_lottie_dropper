@@ -10,6 +10,8 @@
 #import "DropboxDetailViewModel.h"
 #import "UIColor+LottieColors.h"
 #import "NKOColorPickerView.h"
+#import "UIColor+Hex.h"
+#import "NSString+Color.h"
 
 @import Lottie;
 
@@ -47,7 +49,7 @@
 	}];
     
     self.colorPickerView.didChangeColorBlock = ^(UIColor *color){
-        self.hexTextfield.text = [self hexStringFromColor:color];
+        self.hexTextfield.text = [color hex];
         self.view.backgroundColor = color;
     };
     
@@ -57,6 +59,7 @@
 #pragma mark: Setup UI
 
 - (void) setupUI {
+    self.hexTextfield.delegate = self;
     self.colorPickerBackgroundView.layer.cornerRadius = 10;
     [self.colorPickerView setColor:UIColor.whiteColor];
 }
@@ -164,14 +167,21 @@
     }
 }
 
-- (NSString *)hexStringFromColor:(UIColor *)color {
-    const CGFloat *components = CGColorGetComponents(color.CGColor);
-    
-    CGFloat r = components[0];
-    CGFloat g = components[1];
-    CGFloat b = components[2];
-    
-    return [NSString stringWithFormat:@"#%02lX%02lX%02lX", lroundf(r * 255), lroundf(g * 255), lroundf(b * 255)];
+- (void)setColorFromHexText {
+    if ([self.hexTextfield.text verifyHex]) {
+        UIColor *hexColor = [self.hexTextfield.text colorFromHex];
+        [self.colorPickerView setColor:hexColor];
+    } else {
+        NSLog(@"This isn't a valid hex string.");
+    }
+}
+
+#pragma mark: Textfield delegates
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self setColorFromHexText];
+    [self.hexTextfield resignFirstResponder];
+    return true;
 }
 
 @end

@@ -10,7 +10,7 @@
 
 @class DropboxDetailViewModel;
 
-@interface LottieAnimatorViewController : UIViewController
+@interface LottieAnimatorViewController : UIViewController <UITextFieldDelegate>
 
 @property (nonatomic, strong) DropboxDetailViewModel *dropboxDetail;
 
