@@ -12,12 +12,14 @@
 #import "NKOColorPickerView.h"
 #import "UIColor+Hex.h"
 #import "NSString+Color.h"
+#import "LottieAnimatorDetailViewModel.h"
 
 @import Lottie;
 
 @interface LottieAnimatorViewController ()
 @property (strong, nonatomic) LOTAnimationView *animation;
 @property (weak, nonatomic) IBOutlet UISlider *slider;
+@property (strong, nonatomic) LottieAnimatorDetailViewModel * viewModel;
 
 // Color picker
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *colorViewTopConstraint;
@@ -25,7 +27,6 @@
 @property (weak, nonatomic) IBOutlet UIView *colorPickerBackgroundView;
 @property (weak, nonatomic) IBOutlet UITextField *hexTextfield;
 @property (assign) BOOL isColorPickerOpen;
-@property (strong, nonatomic) UIColor *savedColor;
 
 #pragma mark: Toolbar buttons
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
@@ -40,7 +41,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
+    
+    self.viewModel = [[LottieAnimatorDetailViewModel alloc] init];
+    
 	NSLog(@"Animating file %@", self.dropboxDetail.fileName );
 	[self.dropboxDetail downloadFile:^{
 		[[NSOperationQueue mainQueue] addOperationWithBlock:^{
@@ -51,6 +54,7 @@
     self.colorPickerView.didChangeColorBlock = ^(UIColor *color){
         self.hexTextfield.text = [color hex];
         self.view.backgroundColor = color;
+        [self.viewModel updateBackgroundColorForFile:self.dropboxDetail.fileName withHex:[color hex]];
     };
     
     [self setupUI];
@@ -61,7 +65,7 @@
 - (void) setupUI {
     self.hexTextfield.delegate = self;
     self.colorPickerBackgroundView.layer.cornerRadius = 10;
-    [self.colorPickerView setColor:UIColor.whiteColor];
+    [self setColorFromHexText:[self.viewModel getBackgroundColorHexFromFile:self.dropboxDetail.fileName]];
 }
 
 #pragma mark: Toolbar actions
@@ -100,7 +104,6 @@
 #pragma mark: Load & start animation
 
 - (void) loadAnimation {
-
 	if (self.dropboxDetail.json != nil) {
 		_animation = [LOTAnimationView animationFromJSON:self.dropboxDetail.json];
 		_animation.translatesAutoresizingMaskIntoConstraints = NO;
@@ -167,9 +170,9 @@
     }
 }
 
-- (void)setColorFromHexText {
-    if ([self.hexTextfield.text verifyHex]) {
-        UIColor *hexColor = [self.hexTextfield.text colorFromHex];
+- (void)setColorFromHexText:(NSString*)hexText {
+    if ([hexText verifyHex]) {
+        UIColor *hexColor = [hexText colorFromHex];
         [self.colorPickerView setColor:hexColor];
     } else {
         NSLog(@"This isn't a valid hex string.");
@@ -179,7 +182,7 @@
 #pragma mark: Textfield delegates
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [self setColorFromHexText];
+    [self setColorFromHexText:self.hexTextfield.text];
     [self.hexTextfield resignFirstResponder];
     return true;
 }

@@ -10,4 +10,7 @@
 
 @interface LottieAnimatorDetailViewModel : NSObject
 
+- (void)updateBackgroundColorForFile:(NSString*)fileName withHex:(NSString*)hex;
+- (NSString *)getBackgroundColorHexFromFile: (NSString*)fileName;
+
 @end
