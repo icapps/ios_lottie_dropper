@@ -36,14 +36,15 @@
         newFile = [oldJson stringByReplacingCharactersInRange: range withString:newJson];
     } else {
         // Write new json data { backgroundColor : #FFFFFF } to the jsonFile.
-        newFile = [oldJson stringByReplacingCharactersInRange: NSMakeRange(0, 1) withString:newJson];
+        if ([oldJson length] != 0) {
+            newFile = [oldJson stringByReplacingCharactersInRange: NSMakeRange(0, 1) withString:newJson];
+        }
     }
     
     return newFile;
 }
 
 - (NSString *)getBackgroundColorHexFromFile: (NSString*)fileName {
-    // Build the path, and create if needed.
     NSString* filePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString* fileAtPath = [filePath stringByAppendingPathComponent:fileName];
     

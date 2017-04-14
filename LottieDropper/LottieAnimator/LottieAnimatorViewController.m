@@ -13,6 +13,7 @@
 #import "UIColor+Hex.h"
 #import "NSString+Color.h"
 #import "LottieAnimatorDetailViewModel.h"
+#import "DropboxDetailViewModel.h"
 
 @import Lottie;
 
@@ -20,6 +21,7 @@
 @property (strong, nonatomic) LOTAnimationView *animation;
 @property (weak, nonatomic) IBOutlet UISlider *slider;
 @property (strong, nonatomic) LottieAnimatorDetailViewModel * viewModel;
+@property (strong, nonatomic) DropboxDetailViewModel * dropboxViewModel;
 
 // Color picker
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *colorViewTopConstraint;
@@ -43,6 +45,7 @@
     [super viewDidLoad];
     
     self.viewModel = [[LottieAnimatorDetailViewModel alloc] init];
+    self.dropboxViewModel = [[DropboxDetailViewModel alloc] init];
     
 	NSLog(@"Animating file %@", self.dropboxDetail.fileName );
 	[self.dropboxDetail downloadFile:^{
@@ -58,6 +61,12 @@
     };
     
     [self setupUI];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [self.dropboxViewModel uploadDropBoxFileWithFileName:self.dropboxDetail.fileName];
 }
 
 #pragma mark: Setup UI

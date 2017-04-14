@@ -91,6 +91,31 @@
     
 }
 
+- (void) uploadDropBoxFileWithFileName: (NSString *)fileName {
+    NSString* filePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString* fileAtPath = [filePath stringByAppendingPathComponent:fileName];
+    
+    NSError *error;
+    NSString* fileContents = [[NSString alloc] initWithContentsOfFile:fileAtPath encoding:NSUTF8StringEncoding error:&error];
+    
+    NSData *fileData = [fileContents dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:NO];
+
+    DBUserClient *dbClient = [DBClientsManager authorizedClient];
+    
+    NSString *uploadData = [[NSString alloc] initWithFormat:@"/%@", fileName];
+    [dbClient.filesRoutes delete_:uploadData.capitalizedString];
+    [[[dbClient.filesRoutes uploadData:uploadData inputData:fileData] setResponseBlock:^(DBFILESFileMetadata *result, DBFILESUploadError *routeError, DBRequestError *networkError) {
+        if (result) {
+            NSLog(@"%@\n", result);
+        } else {
+            NSLog(@"%@\n%@\n", routeError, networkError);
+        }
+    }] setProgressBlock:^(int64_t bytesUploaded, int64_t totalBytesUploaded, int64_t totalBytesExpectedToUploaded) {
+        NSLog(@"\n%lld\n%lld\n%lld\n", bytesUploaded, totalBytesUploaded, totalBytesExpectedToUploaded);
+    }];
+}
+
+
 -(NSString *) downloadURLString {
     NSString *URLString = [NSString stringWithFormat:@"/%@", self.fileName];
     return URLString;

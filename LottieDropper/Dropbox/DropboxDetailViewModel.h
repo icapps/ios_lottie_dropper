@@ -27,6 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, nullable) NSDictionary * json;
 
 - (void) downloadFile:(void (^) (void)) done;
+- (void) uploadDropBoxFileWithFileName: (NSString *)fileName;
 
 @end
 
