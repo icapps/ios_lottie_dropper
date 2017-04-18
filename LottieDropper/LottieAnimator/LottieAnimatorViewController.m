@@ -126,7 +126,6 @@
 	} else {
 		NSLog(@"LottieAnimatorViewController needs a file before animating");
 	}
-
 }
 
 - (void) startAnimation {

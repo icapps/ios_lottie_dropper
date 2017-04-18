@@ -88,7 +88,6 @@
     }] setProgressBlock:^(int64_t bytesDownloaded, int64_t totalBytesDownloaded, int64_t totalBytesExpectedToDownload) {
         NSLog(@"%lld\n%lld\n%lld\n", bytesDownloaded, totalBytesDownloaded, totalBytesExpectedToDownload);
     }];
-    
 }
 
 - (void) uploadDropBoxFileWithFileName: (NSString *)fileName {
@@ -103,7 +102,7 @@
     DBUserClient *dbClient = [DBClientsManager authorizedClient];
     
     NSString *uploadData = [[NSString alloc] initWithFormat:@"/%@", fileName];
-    [dbClient.filesRoutes delete_:uploadData.capitalizedString];
+    [dbClient.filesRoutes delete_:uploadData];
     [[[dbClient.filesRoutes uploadData:uploadData inputData:fileData] setResponseBlock:^(DBFILESFileMetadata *result, DBFILESUploadError *routeError, DBRequestError *networkError) {
         if (result) {
             NSLog(@"%@\n", result);
@@ -114,7 +113,6 @@
         NSLog(@"\n%lld\n%lld\n%lld\n", bytesUploaded, totalBytesUploaded, totalBytesExpectedToUploaded);
     }];
 }
-
 
 -(NSString *) downloadURLString {
     NSString *URLString = [NSString stringWithFormat:@"/%@", self.fileName];
