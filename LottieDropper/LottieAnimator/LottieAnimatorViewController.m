@@ -75,7 +75,8 @@
 	if (self.dropboxDetail.json != nil) {
 		_animation = [LOTAnimationView animationFromJSON:self.dropboxDetail.json];
 		_animation.translatesAutoresizingMaskIntoConstraints = NO;
-
+        [self addPanGestureRegognizerTo: self.animation];
+        
 		[self.view addSubview:self.animation];
 
 		[[[self.animation centerXAnchor] constraintEqualToAnchor:self.view.centerXAnchor] setActive:YES];
@@ -116,6 +117,19 @@
     [toolbarButtons removeObjectAtIndex:4];
     [toolbarButtons insertObject:self.playButton atIndex:4];
     [self.toolbar setItems:toolbarButtons];
+}
+
+#pragma mark: Drag and drop
+-(void) addPanGestureRegognizerTo: (LOTAnimationView *) animationView {
+    /// Add UIPanGestureRecognizer when setting the animationView to enable drag & drop
+    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(dragAndDrop:)];
+    [panGestureRecognizer setMaximumNumberOfTouches:1];
+    animationView.userInteractionEnabled = YES;
+    [animationView addGestureRecognizer:panGestureRecognizer];
+}
+
+-(void) dragAndDrop: (UIPanGestureRecognizer *) sender {
+    self.animation.center = [sender locationInView:self.animation.superview];
 }
 
 @end
