@@ -23,7 +23,6 @@
 	NSLog(@"Animating file %@", self.dropboxDetail.fileName );
 
 	[self.dropboxDetail downloadFile:^{
-		NSLog(@"File downloaded!");
 		[[NSOperationQueue mainQueue] addOperationWithBlock:^{
 			[self loadAnimation];
 		}];

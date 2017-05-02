@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Connectivity.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,20 +16,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DropboxDetailViewModel : NSObject
 
-@property (nonatomic, strong) DBFILESMetadata * file;
-
--(instancetype)initWithFile: (DBFILESMetadata *) file client: (DBUserClient *)client;
-
-#pragma mark: - Dropbox file load
-
-@property (nonatomic, readonly) NSURL * _Nullable fileOnDisk;
-@property (nonatomic, strong) NSDictionary * _Nullable json;
-
-- (void) downloadFile:(void (^) (void)) done;
+-(instancetype)initWithFile: (NSString *) fileName client: (DBUserClient *)client;
 
 #pragma mark: - Display info
 
--(NSString *)fileName;
+@property (nonatomic, strong) NSString *fileName;
+
+#pragma mark: - Dropbox file info
+
+@property (nonatomic, strong, nullable) NSDictionary * json;
+
+- (void) downloadFile:(void (^) (void)) done;
 
 @end
 

@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @import ObjectiveDropboxOfficial;
 
 @class DropboxDetailViewModel;
+@class DBFILESMetadata;
 
 #pragma mark: - Access Dropbox for Client
 
@@ -26,9 +27,22 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark: - File info
 
-- (NSArray <DropboxDetailViewModel*> *) fileDetails;
+@property (nonatomic, strong) NSMutableArray <DropboxDetailViewModel*> * fileDetails;
 
 - (DropboxDetailViewModel* _Nullable) fileDetailAtIndexPath:(NSIndexPath*) indexPath;
+
+- (void) sort;
+
+#pragma mark: - Local Files
+
+- (NSArray <NSString *> *) fetchFilenamesFromOutputDirectory;
+-(void) setupFileDetailsFromLocalFilenames;
+
+#pragma mark: - Dropbox
+@property (nonatomic, strong)  NSMutableArray<DBFILESMetadata *> *dropboxFileCache;
+
+- (void) fetchDropBoxFiles: (void (^)(void)) done;
+- (void) mergeDropboxFileListWithFileDetails;
 
 @end
 
