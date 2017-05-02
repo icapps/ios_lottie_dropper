@@ -11,6 +11,7 @@
 		6D333A631E93D36A00B241F3 /* DropboxBrowserViewModelSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D333A621E93D36900B241F3 /* DropboxBrowserViewModelSpec.m */; };
 		9CD6F9095CD9DE104585E66F /* Pods_LottieDropper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D75ECD58F61901F591C49DC /* Pods_LottieDropper.framework */; };
 		B56D81331E8D0857001D5290 /* Connectivity.m in Sources */ = {isa = PBXBuildFile; fileRef = B56D81321E8D0857001D5290 /* Connectivity.m */; };
+		B5D9D6611E9CB95700D91987 /* UIColor+LottieColors.m in Sources */ = {isa = PBXBuildFile; fileRef = B5D9D6601E9CB95700D91987 /* UIColor+LottieColors.m */; };
 		C00416CB1E84312C00E92308 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C00416CA1E84312C00E92308 /* main.m */; };
 		C00416CE1E84312C00E92308 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C00416CD1E84312C00E92308 /* AppDelegate.m */; };
 		C00416D11E84312C00E92308 /* DropboxAccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C00416D01E84312C00E92308 /* DropboxAccessViewController.m */; };
@@ -50,6 +51,8 @@
 		844D526C8B6A9DD412568E06 /* Pods_LottieDropperTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LottieDropperTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B56D81311E8D0857001D5290 /* Connectivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Connectivity.h; sourceTree = "<group>"; };
 		B56D81321E8D0857001D5290 /* Connectivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Connectivity.m; sourceTree = "<group>"; };
+		B5D9D65F1E9CB95700D91987 /* UIColor+LottieColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+LottieColors.h"; sourceTree = "<group>"; };
+		B5D9D6601E9CB95700D91987 /* UIColor+LottieColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+LottieColors.m"; sourceTree = "<group>"; };
 		C00416C61E84312C00E92308 /* LottieDropper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LottieDropper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C00416CA1E84312C00E92308 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C00416CC1E84312C00E92308 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -83,8 +86,8 @@
 		C0F3EFB91E894D70004B007F /* LottieAnimatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LottieAnimatorViewController.m; sourceTree = "<group>"; };
 		C0F3EFBB1E894DBB004B007F /* LottieAnimatorDetailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LottieAnimatorDetailViewModel.h; sourceTree = "<group>"; };
 		C0F3EFBC1E894DBB004B007F /* LottieAnimatorDetailViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LottieAnimatorDetailViewModel.m; sourceTree = "<group>"; };
-		C0F3EFBE1E895781004B007F /* Animation2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Animation2.json; path = "Lottie Animation Files For Dropbox/Animation2.json"; sourceTree = SOURCE_ROOT; };
-		C0F3EFBF1E895781004B007F /* Animation1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Animation1.json; path = "Lottie Animation Files For Dropbox/Animation1.json"; sourceTree = SOURCE_ROOT; };
+		C0F3EFBE1E895781004B007F /* Animation2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Animation2.json; sourceTree = "<group>"; };
+		C0F3EFBF1E895781004B007F /* Animation1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Animation1.json; sourceTree = "<group>"; };
 		C747455DF089F6B8CEE6350A /* Pods-LottieDropper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LottieDropper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LottieDropper/Pods-LottieDropper.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -132,7 +135,16 @@
 			isa = PBXGroup;
 			children = (
 			);
-			name = "Google drive";
+			path = "Google drive";
+			sourceTree = "<group>";
+		};
+		B5D9D6581E9BB72700D91987 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				B5D9D65F1E9CB95700D91987 /* UIColor+LottieColors.h */,
+				B5D9D6601E9CB95700D91987 /* UIColor+LottieColors.m */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		C00416BD1E84312C00E92308 = {
@@ -158,10 +170,11 @@
 		C00416C81E84312C00E92308 /* LottieDropper */ = {
 			isa = PBXGroup;
 			children = (
-				6DE34F161E8BB406009DDBE8 /* Google drive */,
 				C0F3EF981E88FE1D004B007F /* ApplicationFlow */,
 				C00416C91E84312C00E92308 /* Bridge */,
+				B5D9D6581E9BB72700D91987 /* Common */,
 				C0F3EF971E88FDEA004B007F /* Dropbox */,
+				6DE34F161E8BB406009DDBE8 /* Google drive */,
 				C0F3EF921E88FBE9004B007F /* KeyChain */,
 				C0F3EFB41E894D20004B007F /* LottieAnimator */,
 				C00416D51E84312C00E92308 /* Assets.xcassets */,
@@ -197,13 +210,13 @@
 		C0F3EF971E88FDEA004B007F /* Dropbox */ = {
 			isa = PBXGroup;
 			children = (
+				C0F3EFA51E890A5C004B007F /* DropBoxBrowserViewController.h */,
+				C0F3EFA61E890A5C004B007F /* DropBoxBrowserViewController.m */,
 				C0F3EFA81E890A7F004B007F /* Dropbox.storyboard */,
 				C00416CF1E84312C00E92308 /* DropboxAccessViewController.h */,
 				C00416D01E84312C00E92308 /* DropboxAccessViewController.m */,
 				C0F3EFAE1E89413F004B007F /* DropboxBrowserCollectionViewCell.h */,
 				C0F3EFAF1E89413F004B007F /* DropboxBrowserCollectionViewCell.m */,
-				C0F3EFA51E890A5C004B007F /* DropBoxBrowserViewController.h */,
-				C0F3EFA61E890A5C004B007F /* DropBoxBrowserViewController.m */,
 				C0F3EFAB1E8922FE004B007F /* DropboxBrowserViewModel.h */,
 				C0F3EFAC1E8922FE004B007F /* DropboxBrowserViewModel.m */,
 				6D333A621E93D36900B241F3 /* DropboxBrowserViewModelSpec.m */,
@@ -219,14 +232,14 @@
 			children = (
 				C00416CC1E84312C00E92308 /* AppDelegate.h */,
 				C00416CD1E84312C00E92308 /* AppDelegate.m */,
+				B56D81311E8D0857001D5290 /* Connectivity.h */,
+				B56D81321E8D0857001D5290 /* Connectivity.m */,
 				C00416DA1E84312C00E92308 /* Info.plist */,
 				C00416D71E84312C00E92308 /* LaunchScreen.storyboard */,
 				C0F3EFA21E89088D004B007F /* LottieFlowControllerViewController.h */,
 				C0F3EFA31E89088D004B007F /* LottieFlowControllerViewController.m */,
 				C00416D21E84312C00E92308 /* Main.storyboard */,
 				C00416CA1E84312C00E92308 /* main.m */,
-				B56D81311E8D0857001D5290 /* Connectivity.h */,
-				B56D81321E8D0857001D5290 /* Connectivity.m */,
 			);
 			path = ApplicationFlow;
 			sourceTree = "<group>";
@@ -234,8 +247,8 @@
 		C0F3EFB41E894D20004B007F /* LottieAnimator */ = {
 			isa = PBXGroup;
 			children = (
-				C0F3EFBE1E895781004B007F /* Animation2.json */,
 				C0F3EFBF1E895781004B007F /* Animation1.json */,
+				C0F3EFBE1E895781004B007F /* Animation2.json */,
 				C0F3EFB51E894D4D004B007F /* LottieAnimator.storyboard */,
 				C0F3EFBB1E894DBB004B007F /* LottieAnimatorDetailViewModel.h */,
 				C0F3EFBC1E894DBB004B007F /* LottieAnimatorDetailViewModel.m */,
@@ -459,6 +472,7 @@
 				C00416D11E84312C00E92308 /* DropboxAccessViewController.m in Sources */,
 				C0F3EFA71E890A5C004B007F /* DropBoxBrowserViewController.m in Sources */,
 				C0F3EFAD1E8922FE004B007F /* DropboxBrowserViewModel.m in Sources */,
+				B5D9D6611E9CB95700D91987 /* UIColor+LottieColors.m in Sources */,
 				C00416CE1E84312C00E92308 /* AppDelegate.m in Sources */,
 				C0F3EFB31E8945C2004B007F /* DropboxDetailViewModel.m in Sources */,
 				C0F3EFBA1E894D70004B007F /* LottieAnimatorViewController.m in Sources */,
@@ -614,6 +628,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
