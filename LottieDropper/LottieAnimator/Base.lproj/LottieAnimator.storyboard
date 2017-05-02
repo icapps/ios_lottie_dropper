@@ -40,7 +40,11 @@
                                     <barButtonItem systemItem="flexibleSpace" id="zps-r4-fiL"/>
                                     <barButtonItem systemItem="add" id="zBa-io-yxX"/>
                                     <barButtonItem systemItem="flexibleSpace" id="jHL-S6-oUO"/>
-                                    <barButtonItem systemItem="add" id="Bvu-K0-aiT"/>
+                                    <barButtonItem systemItem="stop" id="Bvu-K0-aiT">
+                                        <connections>
+                                            <segue destination="aMn-rI-NG5" kind="unwind" unwindAction="exitToDropBoxList:" id="fak-CT-VNx"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="7kz-OC-NKP">
@@ -60,14 +64,16 @@
                             <constraint firstItem="7kz-OC-NKP" firstAttribute="leading" secondItem="txw-mq-4ty" secondAttribute="leading" constant="16" id="q44-BQ-Qip"/>
                         </constraints>
                     </view>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="backButton" destination="Bvu-K0-aiT" id="KaQ-hO-aGw"/>
                         <outlet property="loopButton" destination="hX3-ng-tUv" id="Rx8-xq-TdS"/>
                         <outlet property="slider" destination="7kz-OC-NKP" id="KCq-WX-d2n"/>
                         <outlet property="toolbar" destination="IPh-wG-CSP" id="uaU-N0-Ri6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QGb-bo-aQa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="aMn-rI-NG5" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2474" y="37"/>
         </scene>
